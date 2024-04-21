@@ -19,6 +19,7 @@ export class LearnBeginnnerComponent {
   baseLanguage = '';
   otherLanguage = '';
   userLanguages: any;
+  userTranslations: any;
 
   constructor(
     private loggedUserService: LoggedUserService,
@@ -32,6 +33,17 @@ export class LearnBeginnnerComponent {
 
     if (this.loggedUser) {
       this.words = this.loggedUser.word;
+      this.baseLanguage = this.loggedUser.baseLanguage;
+      this.otherLanguage = this.loggedUser.otherLanguage;
+      console.log('base', this.baseLanguage, 'other', this.otherLanguage);
+      this.userLanguages = Object.keys(this.words[this.wordIdx].translation);
+
+      // for (let i = 0; i < this.userLanguages.length; i++) {
+      //   if (this.baseLanguage == this.userLanguages[i]) {
+      //     console.log('baba', this.words[this.wordIdx].translation);
+      //   }
+      // }
+      this.nextTranslations();
     }
     console.log('beginner', this.chosenWords);
   }
@@ -44,7 +56,7 @@ export class LearnBeginnnerComponent {
     if (this.transIdx > 1) {
       this.transIdx--;
     } else if (this.transIdx == 0) {
-      this.transIdx = this.chosenWords[this.wordIdx].translation.length - 1;
+      this.transIdx = this.userTranslations.length - 1;
       // this.transIdx = 1;
     } else {
       this.transIdx = 0;
@@ -56,7 +68,7 @@ export class LearnBeginnnerComponent {
       return;
     }
     if (
-      this.transIdx < this.chosenWords[this.wordIdx].translation.length - 1 &&
+      this.transIdx < this.userTranslations.length - 1 &&
       this.chosenWords[this.wordIdx].translation.length != 1
     ) {
       this.transIdx++;
@@ -98,17 +110,33 @@ export class LearnBeginnnerComponent {
     }
     if (this.wordIdx < this.chosenWords.length - 1) {
       this.wordIdx++;
+      this.nextTranslations();
     } else {
       this.chosenWords = [];
       this.chosenWords = this.randomService.uniqueRandomArray(
-        3,
+        4,
         this.words,
         this.chosenWords[this.wordIdx]
       );
+
       this.wordIdx = 0;
+      this.nextTranslations();
     }
     this.transIdx = 0;
     this.exIdx = 0;
+  }
+
+  nextTranslations() {
+    switch (this.baseLanguage) {
+      case 'english':
+        this.userTranslations =
+          this.chosenWords[this.wordIdx].translation.english;
+        break;
+      case 'polish':
+        this.userTranslations =
+          this.chosenWords[this.wordIdx].translation.polish;
+        break;
+    }
   }
 
   true = true;

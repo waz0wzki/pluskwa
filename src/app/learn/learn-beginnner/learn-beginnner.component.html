@@ -1,23 +1,31 @@
 <section class="word-section">
-    @if(((loggedUser | json) != ({} | json)) && ((words | json) != ({} | json)) && words && chosenWords)
-    {
-        <h3 class="bgimage">{{chosenWords[wordIdx].word}}</h3>
+  @if(((loggedUser | json) != ({} | json)) && ((words | json) != ({} | json)) &&
+  words && chosenWords) {
+  <h3 class="bgimage">{{ chosenWords[wordIdx].word }}</h3>
 
-        <img src="assets/{{chosenWords[wordIdx].imgUrl}}" alt="{{chosenWords[wordIdx].imgAlt}}" class="bgimage learn-img" [ngClass]="{hard: chosenWords[wordIdx].difficulty=='hard', easy: chosenWords[wordIdx].difficulty=='easy', medium: chosenWords[wordIdx].difficulty=='medium'}">
-    
-        <section class="button-section bgimage">
-            <button (click)="prevTrans()">&lt;</button>
-            <p>{{chosenWords[wordIdx].translation[transIdx]}}</p>
-            <button (click)="nextTrans()">&gt;</button>
-        </section>
-    
-        <section class="button-section bgimage">
-            <button (click)="prevEx()">&lt;</button>
-            <p>{{chosenWords[wordIdx].example[exIdx]}}</p>
-            <button (click)="nextEx()">&gt;</button>
-        </section>
-    
-        <button class="deepskyblue" (click)="nextWord()">CONFIRM</button>
-    }
+  <img
+    src="assets/{{ chosenWords[wordIdx].imgUrl }}"
+    alt="{{ chosenWords[wordIdx].imgAlt }}"
+    class="bgimage learn-img"
+    [ngClass]="{
+      hard: chosenWords[wordIdx].difficulty == 'hard',
+      easy: chosenWords[wordIdx].difficulty == 'easy',
+      medium: chosenWords[wordIdx].difficulty == 'medium'
+    }"
+  />
 
+  <section class="button-section bgimage">
+    <button (click)="prevTrans()">&lt;</button>
+    <p>{{ userTranslations[transIdx] }}</p>
+    <button (click)="nextTrans()">&gt;</button>
+  </section>
+
+  <section class="button-section bgimage">
+    <button (click)="prevEx()">&lt;</button>
+    <p>{{ chosenWords[wordIdx].example[exIdx] }}</p>
+    <button (click)="nextEx()">&gt;</button>
+  </section>
+
+  <button class="deepskyblue" (click)="nextWord()">CONFIRM</button>
+  }
 </section>

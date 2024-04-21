@@ -74,17 +74,17 @@ export class RandomService {
     // console.log('bajka o jajkach', this.repeatedWord);
     switch (this.repeatedWord.status) {
       case 'i learn':
-        if (this.randomInt(0, 100) > 75) {
+        if (this.randomInt(0, 100) > 90) {
           this.randomWord(array);
         }
         return this.repeatedWord;
       case 'i repeat':
-        if (this.randomInt(0, 100) > 50) {
+        if (this.randomInt(0, 100) > 80) {
           this.randomWord(array);
         }
         return this.repeatedWord;
       case 'i know':
-        if (this.randomInt(0, 100) > 25) {
+        if (this.randomInt(0, 100) > 70) {
           this.randomWord(array);
         }
         return this.repeatedWord;

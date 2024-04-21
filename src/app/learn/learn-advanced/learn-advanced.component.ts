@@ -19,6 +19,10 @@ export class LearnAdvancedComponent {
   advancedConfirm = '';
   confirmStatus = '';
   @Input() chosenWords: any;
+  baseLanguage = '';
+  otherLanguage = '';
+  userLanguages: any;
+  userTranslations: any;
 
   constructor(
     private loggedUserService: LoggedUserService,
@@ -32,6 +36,11 @@ export class LearnAdvancedComponent {
     );
     if (this.loggedUser) {
       this.words = this.loggedUser.word;
+      this.baseLanguage = this.loggedUser.baseLanguage;
+      this.otherLanguage = this.loggedUser.otherLanguage;
+      console.log('base', this.baseLanguage, 'other', this.otherLanguage);
+      this.userLanguages = Object.keys(this.words[this.wordIdx].translation);
+      this.nextTranslations();
     }
   }
 
@@ -42,14 +51,16 @@ export class LearnAdvancedComponent {
     }
     if (this.wordIdx < this.chosenWords.length - 1) {
       this.wordIdx++;
+      this.nextTranslations();
     } else {
       this.chosenWords = [];
       this.chosenWords = this.randomService.uniqueRandomArray(
-        3,
+        4,
         this.words,
         this.chosenWords[this.wordIdx]
       );
       this.wordIdx = 0;
+      this.nextTranslations();
     }
   }
 
@@ -82,5 +93,18 @@ export class LearnAdvancedComponent {
     await this.timeService.delay(1000);
     this.confirmStatus = '';
     return;
+  }
+
+  nextTranslations() {
+    switch (this.baseLanguage) {
+      case 'english':
+        this.userTranslations =
+          this.chosenWords[this.wordIdx].translation.english;
+        break;
+      case 'polish':
+        this.userTranslations =
+          this.chosenWords[this.wordIdx].translation.polish;
+        break;
+    }
   }
 }

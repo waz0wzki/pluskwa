@@ -20,6 +20,10 @@ export class LearnIntermediateComponent {
   loggedUser? = {} as UserInterface;
   wordIdx = 0;
   @Input() chosenWords: any;
+  baseLanguage = '';
+  otherLanguage = '';
+  userLanguages: any;
+  userTranslations: any;
 
   ngOnInit() {
     this.loggedUserService.currentUser.subscribe(
@@ -27,12 +31,17 @@ export class LearnIntermediateComponent {
     );
     if (this.loggedUser) {
       this.words = this.loggedUser.word;
+      this.baseLanguage = this.loggedUser.baseLanguage;
+      this.otherLanguage = this.loggedUser.otherLanguage;
+      console.log('base', this.baseLanguage, 'other', this.otherLanguage);
+      this.userLanguages = Object.keys(this.words[this.wordIdx].translation);
       // this.wordIdx = this.randomService.randomInt(0, this.words.length - 1);
       this.chosenAnswers = this.randomService.uniqueRandomArray(
         4,
         this.words,
         this.chosenWords[this.wordIdx]
       );
+      this.nextTranslations();
       console.log('todas las palabras', this.words);
 
       let random = this.randomService.randomInt(0, 3);
@@ -53,6 +62,7 @@ export class LearnIntermediateComponent {
     }
     if (this.wordIdx < this.chosenWords.length - 1) {
       this.wordIdx++;
+      this.nextTranslations();
     } else {
       this.chosenWords = [];
       this.chosenWords = this.randomService.uniqueRandomArray(
@@ -61,6 +71,7 @@ export class LearnIntermediateComponent {
         null
       );
       this.wordIdx = 0;
+      this.nextTranslations();
     }
   }
 
@@ -76,5 +87,18 @@ export class LearnIntermediateComponent {
     );
     let random = this.randomService.randomInt(0, 3);
     this.chosenAnswers[random] = this.chosenWords[this.wordIdx];
+  }
+
+  nextTranslations() {
+    switch (this.baseLanguage) {
+      case 'english':
+        this.userTranslations =
+          this.chosenWords[this.wordIdx].translation.english;
+        break;
+      case 'polish':
+        this.userTranslations =
+          this.chosenWords[this.wordIdx].translation.polish;
+        break;
+    }
   }
 }

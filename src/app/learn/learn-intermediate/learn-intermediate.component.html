@@ -2,7 +2,7 @@
   @if(((loggedUser | json) != ({} | json)) && ((words | json) != ({} | json)) &&
   words && chosenWords && chosenAnswers && ((chosenWords | json) != ({} |
   json))) {
-  <h3 class="bgimage">{{ chosenWords[wordIdx].translation[0] }}</h3>
+  <h3 class="bgimage">{{ userTranslations[0] }}</h3>
 
   <img
     src="assets/{{ chosenWords[wordIdx].imgUrl }}"

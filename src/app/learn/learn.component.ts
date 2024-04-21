@@ -35,13 +35,13 @@ export class LearnComponent {
       console.log('words', this.words);
     }
     this.loginRedirect.redirect(this.loggedUser, this.router);
-    // this.chooseRandomWords(this.words);
+    this.chooseRandomWords(this.words);
     // console.log('allwords', this.words);
     // console.log('aszka baszka ma malego ptaszka', this.chosenWords);
   }
 
   chooseRandomWords(array: any) {
-    if (!array) {
+    if (!array || array.length < 4) {
       return;
     }
     this.chosenWords = this.randomService.uniqueRandomArray(
