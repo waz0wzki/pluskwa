@@ -2,7 +2,7 @@
   "user": [
     {
       "idu": 0,
-      "email": "a",
+      "email": "b",
       "password": "b",
       "baseLanguage": "english",
       "otherLanguage": "spanish",
@@ -15,7 +15,9 @@
         "nouns",
         "adjectives",
         "vehicles",
-        "devices"
+        "devices",
+        "drinks",
+        "clothes"
       ],
       "word": [
         {
@@ -39,30 +41,598 @@
         },
         {
           "idw": 1,
-          "word": "",
+          "word": "el coche",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-car-96.png",
+          "imgAlt": "car",
+          "translation": {
+            "english": ["car"],
+            "polish": ["samochód", "auto"]
+          },
+          "example": [
+            "Queria tener un oche rapido",
+            "Los coches necesitan gasolina para ir"
+          ],
+          "category": ["nouns", "vehicles"]
+        },
+        {
+          "idw": 2,
+          "word": "la cerveza",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i repeat",
+          "difficulty": "medium",
+          "imgUrl": "icons8-beer-96.png",
+          "imgAlt": "beer",
+          "translation": {
+            "english": ["beer"],
+            "polish": ["piwo"]
+          },
+          "example": [
+            "Si no tienes 18 anos, no puedes comprar una cerveza",
+            "Corona es una cerveza espanola"
+          ],
+          "category": ["nouns", "drinks"]
+        },
+        {
+          "idw": 3,
+          "word": "el ordenador",
           "language": "spanish",
           "wordProgress": 0,
           "status": "i know",
+          "difficulty": "hard",
+          "imgUrl": "icons8-computer-96.png",
+          "imgAlt": "computer",
+          "translation": {
+            "english": ["computer"],
+            "polish": ["komputer"]
+          },
+          "example": [
+            "Mi ordenador tiene casi ocho anos",
+            "Los ordenadores son maquinas que usan electricia"
+          ],
+          "category": ["nouns", "devices"]
+        },
+        {
+          "idw": 4,
+          "word": "la vaca",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-cow-96.png",
+          "imgAlt": "cow",
+          "translation": {
+            "english": ["cow"],
+            "polish": ["krowa"]
+          },
+          "example": [
+            "Las vacas nos dan leche",
+            "Las vacas son a menudo blancas y negras"
+          ],
+          "category": ["nouns", "animals"]
+        },
+        {
+          "idw": 5,
+          "word": "el caballo",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-horse-96.png",
+          "imgAlt": "caballo",
+          "translation": {
+            "english": ["horse"],
+            "polish": ["koń"]
+          },
+          "example": [
+            "Los caballos ayudaban a los humanos durante la guerra",
+            "No quiero tener un caballo porque estan muy carros"
+          ],
+          "category": ["nouns", "animals"]
+        },
+        {
+          "idw": 6,
+          "word": "la cucaracha",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i know",
+          "difficulty": "medium",
+          "imgUrl": "icons8-cockroach-96.png",
+          "imgAlt": "cockroach",
+          "translation": {
+            "english": ["cockroach"],
+            "polish": ["karaluch"]
+          },
+          "example": [
+            "Esta cocina es tan sucia que tiene cucarachas",
+            "Las cucarachas son muy fuertes"
+          ],
+          "category": ["nouns", "animals"]
+        },
+        {
+          "idw": 7,
+          "word": "pantalones",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i repeat",
+          "difficulty": "easy",
+          "imgUrl": "icons8-pants-96.png",
+          "imgAlt": "pants",
+          "translation": {
+            "english": ["pants"],
+            "polish": ["spodnie"]
+          },
+          "example": [
+            "Un dia olvide mis pantalones de mi casa",
+            "Tengo muchos pantalones negros"
+          ],
+          "category": ["nouns", "clothes"]
+        },
+        {
+          "idw": 8,
+          "word": "el avion",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-plane-96.png",
+          "imgAlt": "plane",
+          "translation": {
+            "english": ["plane"],
+            "polish": ["samolot"]
+          },
+          "example": [
+            "Tengo miedo para volar en el avion",
+            "No comprendo porque los aviones pueden volar"
+          ],
+          "category": ["nouns", "vehicles"]
+        },
+        {
+          "idw": 9,
+          "word": "manana",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "medium",
+          "imgUrl": "icons8-morning-96.png",
+          "imgAlt": "morning",
+          "translation": {
+            "english": ["morning", "tommorow"],
+            "polish": ["rano", "jutro"]
+          },
+          "example": [
+            "Tengo que despertame temprano manana",
+            "Comi los cereales en la manana"
+          ],
+          "category": ["nouns", "vehicles"]
+        }
+      ]
+    },
+    {
+      "idu": 1,
+      "email": "e",
+      "password": "e",
+      "baseLanguage": "english",
+      "otherLanguage": "spanish",
+      "learningdifficulty": "intermediate",
+      "statuschange": "manual",
+      "category": [
+        "animals",
+        "food",
+        "verbs",
+        "nouns",
+        "adjectives",
+        "vehicles",
+        "devices",
+        "drinks",
+        "clothes"
+      ],
+      "word": [
+        {
+          "idw": 0,
+          "word": "el camino",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
           "difficulty": "easy",
           "imgUrl": "icons8-road-96.png",
           "imgAlt": "road",
           "translation": {
             "english": ["road", "way"],
-            "spanish": [],
             "polish": ["droga", "ścieżka"]
           },
-          "example": {
-            "english": [
-              "el camino a mi casa es muy grande",
-              "voy en el mismo camino cada dia"
-            ],
-            "spanish": [],
-            "polish": [
-              "Droga do mojego domu jest bardzo długa",
-              "Chodzę tą samą ścieżką każdego dnia"
-            ]
+          "example": [
+            "el camino a mi casa es muy grande",
+            "voy en el mismo camino cada dia"
+          ],
+          "category": ["nouns"]
+        },
+        {
+          "idw": 1,
+          "word": "el coche",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-car-96.png",
+          "imgAlt": "car",
+          "translation": {
+            "english": ["car"],
+            "polish": ["samochód", "auto"]
           },
-          "category": []
+          "example": [
+            "Queria tener un oche rapido",
+            "Los coches necesitan gasolina para ir"
+          ],
+          "category": ["nouns", "vehicles"]
+        },
+        {
+          "idw": 2,
+          "word": "la cerveza",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i repeat",
+          "difficulty": "medium",
+          "imgUrl": "icons8-beer-96.png",
+          "imgAlt": "beer",
+          "translation": {
+            "english": ["beer"],
+            "polish": ["piwo"]
+          },
+          "example": [
+            "Si no tienes 18 anos, no puedes comprar una cerveza",
+            "Corona es una cerveza espanola"
+          ],
+          "category": ["nouns", "drinks"]
+        },
+        {
+          "idw": 3,
+          "word": "el ordenador",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i know",
+          "difficulty": "hard",
+          "imgUrl": "icons8-computer-96.png",
+          "imgAlt": "computer",
+          "translation": {
+            "english": ["computer"],
+            "polish": ["komputer"]
+          },
+          "example": [
+            "Mi ordenador tiene casi ocho anos",
+            "Los ordenadores son maquinas que usan electricia"
+          ],
+          "category": ["nouns", "devices"]
+        },
+        {
+          "idw": 4,
+          "word": "la vaca",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-cow-96.png",
+          "imgAlt": "cow",
+          "translation": {
+            "english": ["cow"],
+            "polish": ["krowa"]
+          },
+          "example": [
+            "Las vacas nos dan leche",
+            "Las vacas son a menudo blancas y negras"
+          ],
+          "category": ["nouns", "animals"]
+        },
+        {
+          "idw": 5,
+          "word": "el caballo",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-horse-96.png",
+          "imgAlt": "caballo",
+          "translation": {
+            "english": ["horse"],
+            "polish": ["koń"]
+          },
+          "example": [
+            "Los caballos ayudaban a los humanos durante la guerra",
+            "No quiero tener un caballo porque estan muy carros"
+          ],
+          "category": ["nouns", "animals"]
+        },
+        {
+          "idw": 6,
+          "word": "la cucaracha",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i know",
+          "difficulty": "medium",
+          "imgUrl": "icons8-cockroach-96.png",
+          "imgAlt": "cockroach",
+          "translation": {
+            "english": ["cockroach"],
+            "polish": ["karaluch"]
+          },
+          "example": [
+            "Esta cocina es tan sucia que tiene cucarachas",
+            "Las cucarachas son muy fuertes"
+          ],
+          "category": ["nouns", "animals"]
+        },
+        {
+          "idw": 7,
+          "word": "pantalones",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i repeat",
+          "difficulty": "easy",
+          "imgUrl": "icons8-pants-96.png",
+          "imgAlt": "pants",
+          "translation": {
+            "english": ["pants"],
+            "polish": ["spodnie"]
+          },
+          "example": [
+            "Un dia olvide mis pantalones de mi casa",
+            "Tengo muchos pantalones negros"
+          ],
+          "category": ["nouns", "clothes"]
+        },
+        {
+          "idw": 8,
+          "word": "el avion",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-plane-96.png",
+          "imgAlt": "plane",
+          "translation": {
+            "english": ["plane"],
+            "polish": ["samolot"]
+          },
+          "example": [
+            "Tengo miedo para volar en el avion",
+            "No comprendo porque los aviones pueden volar"
+          ],
+          "category": ["nouns", "vehicles"]
+        },
+        {
+          "idw": 9,
+          "word": "manana",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "medium",
+          "imgUrl": "icons8-morning-96.png",
+          "imgAlt": "morning",
+          "translation": {
+            "english": ["morning", "tommorow"],
+            "polish": ["rano", "jutro"]
+          },
+          "example": [
+            "Tengo que despertame temprano manana",
+            "Comi los cereales en la manana"
+          ],
+          "category": ["nouns", "vehicles"]
+        }
+      ]
+    },
+    {
+      "idu": 2,
+      "email": "a",
+      "password": "a",
+      "baseLanguage": "english",
+      "otherLanguage": "spanish",
+      "learningdifficulty": "advanced",
+      "statuschange": "manual",
+      "category": [
+        "animals",
+        "food",
+        "verbs",
+        "nouns",
+        "adjectives",
+        "vehicles",
+        "devices",
+        "drinks",
+        "clothes"
+      ],
+      "word": [
+        {
+          "idw": 0,
+          "word": "el camino",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-road-96.png",
+          "imgAlt": "road",
+          "translation": {
+            "english": ["road", "way"],
+            "polish": ["droga", "ścieżka"]
+          },
+          "example": [
+            "el camino a mi casa es muy grande",
+            "voy en el mismo camino cada dia"
+          ],
+          "category": ["nouns"]
+        },
+        {
+          "idw": 1,
+          "word": "el coche",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-car-96.png",
+          "imgAlt": "car",
+          "translation": {
+            "english": ["car"],
+            "polish": ["samochód", "auto"]
+          },
+          "example": [
+            "Queria tener un oche rapido",
+            "Los coches necesitan gasolina para ir"
+          ],
+          "category": ["nouns", "vehicles"]
+        },
+        {
+          "idw": 2,
+          "word": "la cerveza",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i repeat",
+          "difficulty": "medium",
+          "imgUrl": "icons8-beer-96.png",
+          "imgAlt": "beer",
+          "translation": {
+            "english": ["beer"],
+            "polish": ["piwo"]
+          },
+          "example": [
+            "Si no tienes 18 anos, no puedes comprar una cerveza",
+            "Corona es una cerveza espanola"
+          ],
+          "category": ["nouns", "drinks"]
+        },
+        {
+          "idw": 3,
+          "word": "el ordenador",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i know",
+          "difficulty": "hard",
+          "imgUrl": "icons8-computer-96.png",
+          "imgAlt": "computer",
+          "translation": {
+            "english": ["computer"],
+            "polish": ["komputer"]
+          },
+          "example": [
+            "Mi ordenador tiene casi ocho anos",
+            "Los ordenadores son maquinas que usan electricia"
+          ],
+          "category": ["nouns", "devices"]
+        },
+        {
+          "idw": 4,
+          "word": "la vaca",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-cow-96.png",
+          "imgAlt": "cow",
+          "translation": {
+            "english": ["cow"],
+            "polish": ["krowa"]
+          },
+          "example": [
+            "Las vacas nos dan leche",
+            "Las vacas son a menudo blancas y negras"
+          ],
+          "category": ["nouns", "animals"]
+        },
+        {
+          "idw": 5,
+          "word": "el caballo",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-horse-96.png",
+          "imgAlt": "caballo",
+          "translation": {
+            "english": ["horse"],
+            "polish": ["koń"]
+          },
+          "example": [
+            "Los caballos ayudaban a los humanos durante la guerra",
+            "No quiero tener un caballo porque estan muy carros"
+          ],
+          "category": ["nouns", "animals"]
+        },
+        {
+          "idw": 6,
+          "word": "la cucaracha",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i know",
+          "difficulty": "medium",
+          "imgUrl": "icons8-cockroach-96.png",
+          "imgAlt": "cockroach",
+          "translation": {
+            "english": ["cockroach"],
+            "polish": ["karaluch"]
+          },
+          "example": [
+            "Esta cocina es tan sucia que tiene cucarachas",
+            "Las cucarachas son muy fuertes"
+          ],
+          "category": ["nouns", "animals"]
+        },
+        {
+          "idw": 7,
+          "word": "pantalones",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i repeat",
+          "difficulty": "easy",
+          "imgUrl": "icons8-pants-96.png",
+          "imgAlt": "pants",
+          "translation": {
+            "english": ["pants"],
+            "polish": ["spodnie"]
+          },
+          "example": [
+            "Un dia olvide mis pantalones de mi casa",
+            "Tengo muchos pantalones negros"
+          ],
+          "category": ["nouns", "clothes"]
+        },
+        {
+          "idw": 8,
+          "word": "el avion",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "easy",
+          "imgUrl": "icons8-plane-96.png",
+          "imgAlt": "plane",
+          "translation": {
+            "english": ["plane"],
+            "polish": ["samolot"]
+          },
+          "example": [
+            "Tengo miedo para volar en el avion",
+            "No comprendo porque los aviones pueden volar"
+          ],
+          "category": ["nouns", "vehicles"]
+        },
+        {
+          "idw": 9,
+          "word": "manana",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "medium",
+          "imgUrl": "icons8-morning-96.png",
+          "imgAlt": "morning",
+          "translation": {
+            "english": ["morning", "tommorow"],
+            "polish": ["rano", "jutro"]
+          },
+          "example": [
+            "Tengo que despertame temprano manana",
+            "Comi los cereales en la manana"
+          ],
+          "category": ["nouns", "vehicles"]
         }
       ]
     }
