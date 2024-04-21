@@ -29,6 +29,7 @@ export class LearnComponent {
       (user) => (this.loggedUser = user)
     );
     if (this.loggedUser) {
+      console.log(this.loggedUser);
       this.words = this.loggedUser.word;
       this.condition = this.loggedUser.learningdifficulty;
       console.log('words', this.words);
