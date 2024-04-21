@@ -10,6 +10,6 @@ export interface WordInterface {
   imgUrl: string;
   imgAlt: string;
   translation: languageInterface;
-  example: languageInterface;
+  example: string[];
   category: string[];
 }

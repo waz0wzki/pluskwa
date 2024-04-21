@@ -32,7 +32,6 @@ export class LearnBeginnnerComponent {
 
     if (this.loggedUser) {
       this.words = this.loggedUser.word;
-      console.log('dupa');
     }
     console.log('beginner', this.chosenWords);
   }

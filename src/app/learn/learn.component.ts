@@ -30,13 +30,13 @@ export class LearnComponent {
     );
     if (this.loggedUser) {
       this.words = this.loggedUser.word;
+      this.condition = this.loggedUser.learningdifficulty;
+      console.log('words', this.words);
     }
     this.loginRedirect.redirect(this.loggedUser, this.router);
-    this.condition = this.loggedUser?.learningdifficulty;
-
-    this.chooseRandomWords(this.words);
-    console.log('allwords', this.words);
-    console.log('aszka baszka ma malego ptaszka', this.chosenWords);
+    // this.chooseRandomWords(this.words);
+    // console.log('allwords', this.words);
+    // console.log('aszka baszka ma malego ptaszka', this.chosenWords);
   }
 
   chooseRandomWords(array: any) {

@@ -8,37 +8,34 @@
       "otherLanguage": "spanish",
       "learningdifficulty": "beginner",
       "statuschange": "manual",
-      "category": [],
+      "category": [
+        "animals",
+        "food",
+        "verbs",
+        "nouns",
+        "adjectives",
+        "vehicles",
+        "devices"
+      ],
       "word": [
         {
           "idw": 0,
           "word": "el camino",
           "language": "spanish",
           "wordProgress": 0,
-          "status": "i know",
+          "status": "i learn",
           "difficulty": "easy",
           "imgUrl": "icons8-road-96.png",
           "imgAlt": "road",
           "translation": {
             "english": ["road", "way"],
-            "spanish": ["el camino", "la calle"],
             "polish": ["droga", "ścieżka"]
           },
-          "example": {
-            "english": [
-              "Road to my house is very long",
-              "I go the same way every day"
-            ],
-            "spanish": [
-              "el camino a mi casa es muy grande",
-              "voy en el mismo camino cada dia"
-            ],
-            "polish": [
-              "Droga do mojego domu jest bardzo długa",
-              "Chodzę tą samą ścieżką każdego dnia"
-            ]
-          },
-          "category": []
+          "example": [
+            "el camino a mi casa es muy grande",
+            "voy en el mismo camino cada dia"
+          ],
+          "category": ["nouns"]
         },
         {
           "idw": 1,

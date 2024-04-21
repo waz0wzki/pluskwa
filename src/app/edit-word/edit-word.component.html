@@ -31,7 +31,7 @@
     <input type="text" />
     <select name="" id="">
       <option value="" selected hidden disabled>Example</option>
-      @for (item of editedWord.example.english; track $index) {
+      @for (item of editedWord.example; track $index) {
       <option value="item">{{ item.slice(0, 20) + "..." }}</option>
       }
     </select>
