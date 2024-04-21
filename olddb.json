@@ -1,0 +1,47 @@
+{
+    "word": {
+      "idw": [0,1,2,3,4],
+      "word": [
+        "el camino",
+        "el coche",
+        "la cerveza",
+        "el ordenador",
+        "mañana"
+      ],
+      "status": [
+        "i know",
+        "i know",
+        "i know",
+        "i know",
+        "i know"
+      ],
+      "idu": [0,0,0,0,0],
+      "difficulty" : []
+    },
+    "user": {
+      "idu" : [0],
+      "email" : ["glupi@smiec.pl"],
+      "password" : ["piwotomojepaliwo"],
+      "learningdifficulty" : [0],
+      "statuschange" : [0]
+    },
+    "translation" : {
+      "idt" : [0,1,2,3,4],
+      "translation" : ["way","car","beer","computer","tommorow","morning"],
+      "idw" : [0,1,2,3,4,4]
+    },
+    "example" : {
+      "ide" : [0,1,2],
+      "example" : ["Yo comprí un nuevo ordenador","Mañana es un fin de semana", "Yo siempre cepillo los dientes en la mañana"],
+      "idw" : [3,4,4]
+    },
+    "category" : {
+      "idc" : [0,1,2],
+      "category" : ["food","machines","devices"]
+    },
+    "wordcategory" : {
+      "idwc" : [0,1,2],
+      "idw" : [2,1,3],
+      "idc" : [0,1,2]
+    }
+  }

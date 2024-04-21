@@ -1,0 +1,84 @@
+<main>
+  <section id="search-container">
+    <section class="search">
+      <input
+        type="text"
+        name="search-field"
+        placeholder="search"
+        [(ngModel)]="searchWord"
+      />
+
+      <section class="buttons">
+        <button class="springgreen">SEARCH</button>
+        <button class="deepskyblue" routerLink="../edit-word">ADD</button>
+      </section>
+    </section>
+
+    <h3>Filters:</h3>
+
+    <section class="filters">
+      <section class="filter bgimage">
+        <h4>Category</h4>
+
+        <ul>
+          @for (item of categories; track $index) {
+          <li>
+            <input
+              type="checkbox"
+              class="checkbox"
+              name="category-checkbox"
+            />{{ item }}
+          </li>
+          }
+        </ul>
+      </section>
+
+      <section class="filter bgimage">
+        <h4>Status</h4>
+
+        <ul>
+          @for (item of statuses; track $index) {
+          <li>
+            <input type="checkbox" class="checkbox" name="status-checkbox" />{{
+              item.value
+            }}
+          </li>
+          }
+        </ul>
+      </section>
+
+      <section class="filter bgimage">
+        <h4>Difficulty</h4>
+
+        <ul>
+          @for (item of difficultyLevels; track $index) {
+          <li>
+            <input
+              type="checkbox"
+              class="checkbox"
+              name="difficulty-checkbox"
+            />{{ item.value }}
+          </li>
+          }
+        </ul>
+      </section>
+    </section>
+  </section>
+
+  <section id="results-container" class="">
+    <h3>Results</h3>
+
+    <section class="results">
+      @for (item of searchedWords; track $index) {
+      <section
+        class="result bgimage hover-grow"
+        routerLink="../edit-word"
+        (click)="editWord($index)"
+      >
+        <img src="assets/{{ item.imgUrl }}" alt="majteczki" />
+        <span>{{ item.word }}</span>
+      </section>
+      }
+    </section>
+  </section>
+</main>

@@ -1,0 +1,26 @@
+<section class="word-section">
+  @if(((loggedUser | json) != ({} | json)) && ((words | json) != ({} | json)) &&
+  words && chosenWords && chosenAnswers && ((chosenWords | json) != ({} |
+  json))) {
+  <h3 class="bgimage">{{ chosenWords[wordIdx].translation[0] }}</h3>
+
+  <img
+    src="assets/{{ chosenWords[wordIdx].imgUrl }}"
+    alt="{{ chosenWords[wordIdx].imgAlt }}"
+    class="bgimage learn-img"
+    [ngClass]="{
+      hard: chosenWords[wordIdx].difficulty == 'hard',
+      easy: chosenWords[wordIdx].difficulty == 'easy',
+      medium: chosenWords[wordIdx].difficulty == 'medium'
+    }"
+  />
+
+  <section class="four-btns">
+    @for (item of chosenAnswers; track $index) {
+    <button>{{ item.word }}</button>
+    }
+  </section>
+
+  <button class="deepskyblue" (click)="nextWordSemiAdvanced()">CONFIRM</button>
+  }
+</section>

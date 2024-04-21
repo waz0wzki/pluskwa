@@ -1,0 +1,17 @@
+<nav>
+  <section class="navbar-begin">
+    <img src="assets/pluskwa.png" alt="majteczki" routerLink="../login" />
+    <span>PLUSKWISZKI</span>
+  </section>
+
+  @if((loggedUser | json) != ({} | json)) {
+  <section class="navbar-end">
+    @for (item of navbaritems; track item) {
+    <section class="navbar-item hover-grow" [routerLink]="item.routerLink">
+      <img src="{{ item.imgUrl }}" alt="majteczki" />
+      <span>{{ item.label }}</span>
+    </section>
+    }
+  </section>
+  }
+</nav>

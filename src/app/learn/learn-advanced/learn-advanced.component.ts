@@ -1,0 +1,86 @@
+import { Component, Input, Output } from '@angular/core';
+import { WordInterface } from '../../interfaces/word.interface';
+import { UserInterface } from '../../interfaces/user.interface';
+import { LoggedUserService } from '../../services/loggedUser.service';
+import { TimeService } from '../../services/time.service';
+import { Router } from '@angular/router';
+import { RandomService } from '../../services/random.service';
+
+@Component({
+  selector: 'app-learn-advanced',
+  templateUrl: './learn-advanced.component.html',
+  styleUrl: './learn-advanced.component.scss',
+})
+export class LearnAdvancedComponent {
+  words? = {} as WordInterface[];
+  loggedUser? = {} as UserInterface;
+  wordIdx = 0;
+  errorIdx = 0;
+  advancedConfirm = '';
+  confirmStatus = '';
+  @Input() chosenWords: any;
+
+  constructor(
+    private loggedUserService: LoggedUserService,
+    private timeService: TimeService,
+    private router: Router,
+    private randomService: RandomService
+  ) {}
+  ngOnInit() {
+    this.loggedUserService.currentUser.subscribe(
+      (user) => (this.loggedUser = user)
+    );
+    if (this.loggedUser) {
+      this.words = this.loggedUser.word;
+    }
+  }
+
+  nextWord() {
+    this.advancedConfirm = '';
+    if (!this.words) {
+      return;
+    }
+    if (this.wordIdx < this.chosenWords.length - 1) {
+      this.wordIdx++;
+    } else {
+      this.chosenWords = [];
+      this.chosenWords = this.randomService.uniqueRandomArray(
+        3,
+        this.words,
+        this.chosenWords[this.wordIdx]
+      );
+      this.wordIdx = 0;
+    }
+  }
+
+  async nextWordAdvanced() {
+    if (!this.words) {
+      return;
+    }
+
+    if (this.advancedConfirm == this.chosenWords[this.wordIdx].word) {
+      this.confirmStatus = 'Correct';
+      await this.timeService.delay(1000);
+      this.confirmStatus = '';
+      this.errorIdx = 0;
+      this.nextWord();
+
+      return;
+    }
+
+    if (this.errorIdx == 2) {
+      this.confirmStatus =
+        'The correct answer is: ' + this.chosenWords[this.wordIdx].word;
+      this.errorIdx = 0;
+
+      this.nextWord();
+    } else {
+      this.confirmStatus = 'Wrong';
+      this.advancedConfirm = '';
+      this.errorIdx++;
+    }
+    await this.timeService.delay(1000);
+    this.confirmStatus = '';
+    return;
+  }
+}

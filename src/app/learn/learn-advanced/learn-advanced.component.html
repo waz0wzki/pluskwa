@@ -1,0 +1,30 @@
+<section class="word-section">
+  @if(((loggedUser | json) != ({} | json)) && ((words | json) != ({} | json)) &&
+  words) {
+  <h3 class="bgimage">{{ chosenWords[wordIdx].translation[0] }}</h3>
+
+  <img
+    src="assets/{{ chosenWords[wordIdx].imgUrl }}"
+    alt="{{ chosenWords[wordIdx].imgAlt }}"
+    class="bgimage learn-img"
+    [ngClass]="{
+      hard: chosenWords[wordIdx].difficulty == 'hard',
+      easy: chosenWords[wordIdx].difficulty == 'easy',
+      medium: chosenWords[wordIdx].difficulty == 'medium'
+    }"
+  />
+
+  <input type="text" [(ngModel)]="advancedConfirm" />
+  @if(confirmStatus!="") {
+  <label
+    class="bgimage"
+    [ngClass]="{
+      wrong: confirmStatus == 'Wrong',
+      correct: confirmStatus == 'Correct'
+    }"
+    >{{ confirmStatus }}</label
+  >
+  } @if(confirmStatus=="") {
+  <button class="deepskyblue" (click)="nextWordAdvanced()">CONFIRM</button>
+  } }
+</section>

@@ -1,0 +1,57 @@
+section
+{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    justify-content: space-around;
+    gap: 10px;
+
+    > input
+    {
+        box-sizing: border-box;
+        width: 200px;
+        margin: auto;
+        font-size: 1.2em;
+        padding: 5px;
+        color: gray;
+        &:focus
+        {
+            color: black;
+        }
+    }
+}
+
+.buttons
+{
+    flex-direction: column;
+    width: 200px;
+    justify-content: space-between;
+    box-sizing: content-box;
+    > button
+    {
+        border-radius: 500px;
+        font-size: 1em;
+        padding: 5px;
+        &:hover
+        {
+            cursor: pointer;
+        }
+    }
+}
+
+.loginError
+{
+    color: crimson;
+    font-weight: bold;
+    font-size: 1em;
+    width: 200px;
+    margin: auto;
+}
+
+@media screen and (max-width: 720px){
+    section
+    {
+        width: 80%;
+    }
+}

@@ -1,0 +1,14 @@
+<main>
+  <section>
+    <h2>GET STARTED</h2>
+    <input type="email" placeholder="email" [(ngModel)]="email" />
+    <input type="password" placeholder="password" [(ngModel)]="password" />
+    @if(loginError!="") {
+    <label class="loginError bgimage">{{ loginError }}</label>
+    }
+    <section class="buttons">
+      <button class="deepskyblue" (click)="signIn()">SIGN IN</button>
+      <button class="springgreen">SIGN UP</button>
+    </section>
+  </section>
+</main>

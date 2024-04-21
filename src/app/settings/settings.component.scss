@@ -1,0 +1,90 @@
+section
+{
+    text-align: center;
+}
+
+main
+{
+    display: flex;
+    flex-direction: row;
+    > section
+    {
+        width: 100%;
+        // border: 1px solid black;
+    }
+}
+
+.inputs
+{
+    display: flex;
+    gap: 10px 0;
+    flex-wrap: wrap;
+    width: 400px;
+    margin: auto;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+input, label, select
+{
+    width: 200px;
+    font-size: 1em;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 5px;  
+}
+
+input
+{
+    color: gray;
+    &:focus
+        {
+            color: black;
+        }
+}
+
+
+.buttons
+{
+    width: 400px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-around;
+    align-content: stretch;
+    flex-wrap: wrap;
+    padding: 0;
+    flex-direction: row;
+    gap: 10px;
+}
+
+button
+{
+    font-size: 1em;
+    padding: 5px;
+    width: 100px;
+    a
+    {
+        text-decoration: none;
+
+    }
+}
+
+@media screen and (max-width: 500px)
+{
+    .inputs
+    {
+        flex-direction: column;
+        margin: auto;
+        justify-content: center;
+        width: 200px;
+    }
+
+    .buttons
+    {
+        width: 200px;
+    }
+    button
+    {
+        width: 150px;
+    }
+}

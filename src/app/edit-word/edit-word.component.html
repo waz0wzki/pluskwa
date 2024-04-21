@@ -1,0 +1,94 @@
+@if(editedWord) {
+<main>
+  <section class="edit-row">
+    <input type="text" name="word" />
+    <label for="word" class="bgimage">{{
+      editedWord.word.toUpperCase()
+    }}</label>
+    <section class="buttons">
+      <button><img src="assets/{{ editedWord.imgUrl }}" alt="" /></button>
+      <button><img src="assets/icons8-edit-52.png" alt="" /></button>
+      <button><img src="assets/icons8-trash-52.png" alt="" /></button>
+    </section>
+  </section>
+
+  <section class="edit-row">
+    <input type="text" />
+    <select name="" id="">
+      <option value="" disabled selected hidden>Translation</option>
+      @for (item of editedWord.translation.english; track $index) {
+      <option value="item">{{ item }}</option>
+      }
+    </select>
+    <section class="buttons">
+      <button><img src="assets/icons8-add-64.png" alt="" /></button>
+      <button><img src="assets/icons8-edit-52.png" alt="" /></button>
+      <button><img src="assets/icons8-trash-52.png" alt="" /></button>
+    </section>
+  </section>
+
+  <section class="edit-row">
+    <input type="text" />
+    <select name="" id="">
+      <option value="" selected hidden disabled>Example</option>
+      @for (item of editedWord.example.english; track $index) {
+      <option value="item">{{ item.slice(0, 20) + "..." }}</option>
+      }
+    </select>
+    <section class="buttons">
+      <button><img src="assets/icons8-add-64.png" alt="" /></button>
+      <button><img src="assets/icons8-edit-52.png" alt="" /></button>
+      <button><img src="assets/icons8-trash-52.png" alt="" /></button>
+    </section>
+  </section>
+
+  <section class="edit-row">
+    <select name="" id="">
+      <option value="" selected disabled hidden>All categories</option>
+      @for (item of loggedUser?.category; track $index) {
+      <option value="item">{{ item }}</option>
+      }
+    </select>
+    <select name="" id="">
+      <option value="" selected disabled hidden>Word categories</option>
+      @for (item of editedWord.category; track $index) {
+      <option value="item">{{ item }}</option>
+      }
+    </select>
+    <section class="buttons">
+      <button><img src="assets/icons8-add-64.png" alt="" /></button>
+      <!-- <button><img src="assets/icons8-edit-52.png" alt=""></button> -->
+      <button><img src="assets/icons8-trash-52.png" alt="" /></button>
+    </section>
+  </section>
+
+  <section class="edit-row">
+    <select name="" id="">
+      <option value="" selected disabled hidden>Status</option>
+      @for (item of STATUS_OPTIONS; track $index) {
+      <option value="item">{{ item.value }}</option>
+      }
+    </select>
+    <select name="" id="">
+      <option value="" selected disabled hidden>Difficulty</option>
+      @for (item of DIFFICULTY_OPTIONS; track $index) {
+      <option value="item">{{ item.value }}</option>
+      }
+    </select>
+  </section>
+
+  <section class="final-buttons">
+    <button class="springgreen">ADD</button>
+    <button class="deepskyblue">MODIFY</button>
+    <button class="crimson">DELETE</button>
+  </section>
+
+  <section class="add-category">
+    <input type="text" />
+    <button class="springgreen">ADD CATEGORY</button>
+    <button class="deepskyblue">EDIT CATEGORY</button>
+    <button class="crimson">DELETE CATEGORY</button>
+  </section>
+</main>
+
+}

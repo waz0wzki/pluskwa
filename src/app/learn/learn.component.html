@@ -1,0 +1,21 @@
+<main>
+  <section class="learn-section">
+    @if(condition=="beginner") {
+    <app-learn-beginnner [chosenWords]="chosenWords"></app-learn-beginnner>
+    }
+  </section>
+
+  <section class="learn-section">
+    @if(condition=="intermediate") {
+    <app-learn-intermediate
+      [chosenWords]="chosenWords"
+    ></app-learn-intermediate>
+    }
+  </section>
+
+  <section class="learn-section">
+    @if(condition=="advanced") {
+    <app-learn-advanced [chosenWords]="chosenWords"></app-learn-advanced>
+    }
+  </section>
+</main>
