@@ -40,6 +40,7 @@ export class LearnAdvancedComponent {
       this.otherLanguage = this.loggedUser.otherLanguage;
       console.log('base', this.baseLanguage, 'other', this.otherLanguage);
       this.userLanguages = Object.keys(this.words[this.wordIdx].translation);
+
       this.nextTranslations();
     }
   }
@@ -96,15 +97,21 @@ export class LearnAdvancedComponent {
   }
 
   nextTranslations() {
-    switch (this.baseLanguage) {
-      case 'english':
-        this.userTranslations =
-          this.chosenWords[this.wordIdx].translation.english;
-        break;
-      case 'polish':
-        this.userTranslations =
-          this.chosenWords[this.wordIdx].translation.polish;
-        break;
+    if (this.loggedUser) {
+      this.userTranslations =
+        this.chosenWords[this.wordIdx].translation[
+          this.loggedUser.baseLanguage
+        ];
     }
+    //   switch (this.baseLanguage) {
+    //     case 'english':
+    //       this.userTranslations =
+    //         this.chosenWords[this.wordIdx].translation.english;
+    //       break;
+    //     case 'polish':
+    //       this.userTranslations =
+    //         this.chosenWords[this.wordIdx].translation.polish;
+    //       break;
+    //   }
   }
 }

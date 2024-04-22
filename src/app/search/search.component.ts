@@ -7,6 +7,7 @@ import { LoginRedirect } from '../services/loginRedirect.service';
 import { Route, Router } from '@angular/router';
 import { DIFFICULTY_OPTIONS } from '../models/difficulty-options';
 import { STATUS_OPTIONS } from '../models/status-options';
+import { LANGUAGES } from '../models/languages';
 
 @Component({
   selector: 'app-search',
@@ -18,6 +19,7 @@ export class SearchComponent {
   users: UserInterface[] = [];
   difficultyLevels = DIFFICULTY_OPTIONS;
   statuses = STATUS_OPTIONS;
+  languages = LANGUAGES;
   words? = {} as WordInterface[];
   loggedUser? = {} as UserInterface;
   editedWord = {} as WordInterface;
@@ -41,10 +43,12 @@ export class SearchComponent {
     if (this.loggedUser) {
       this.words = this.loggedUser.word;
       this.categories = this.loggedUser.category;
-      this.searchedWords = [];
-      for (let i = 0; i < this.words.length; i++) {
-        if (this.words[i].language == this.loggedUser.otherLanguage) {
-          this.searchedWords.push(this.words[i]);
+      if (this.words) {
+        this.searchedWords = [];
+        for (let i = 0; i < this.words.length; i++) {
+          if (this.words[i].language == this.loggedUser.otherLanguage) {
+            this.searchedWords.push(this.words[i]);
+          }
         }
       }
     }

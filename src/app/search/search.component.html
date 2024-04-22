@@ -62,6 +62,22 @@
           }
         </ul>
       </section>
+
+      <section class="filter bgimage">
+        <h4>Language</h4>
+
+        <ul>
+          @for (item of languages; track $index) {
+          <li>
+            <input
+              type="checkbox"
+              class="checkbox"
+              name="language-checkbox"
+            />{{ item.language }}
+          </li>
+          }
+        </ul>
+      </section>
     </section>
   </section>
 

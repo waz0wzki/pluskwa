@@ -3,6 +3,8 @@ import { WordInterface } from '../../interfaces/word.interface';
 import { UserInterface } from '../../interfaces/user.interface';
 import { RandomService } from '../../services/random.service';
 import { LoggedUserService } from '../../services/loggedUser.service';
+import { TimeService } from '../../services/time.service';
+import { LANGUAGES } from '../../models/languages';
 
 @Component({
   selector: 'app-learn-intermediate',
@@ -12,7 +14,8 @@ import { LoggedUserService } from '../../services/loggedUser.service';
 export class LearnIntermediateComponent {
   constructor(
     private randomService: RandomService,
-    private loggedUserService: LoggedUserService
+    private loggedUserService: LoggedUserService,
+    private timeService: TimeService
   ) {}
 
   chosenAnswers: any = [];
@@ -24,6 +27,14 @@ export class LearnIntermediateComponent {
   otherLanguage = '';
   userLanguages: any;
   userTranslations: any;
+  status: any;
+  buttons = [] as any;
+  intermediateConfirm = '';
+  confirmStatus = '';
+  errorIdx = 0;
+  voicess = window.speechSynthesis.getVoices();
+  foundVoice: string = '';
+  languages = LANGUAGES;
 
   ngOnInit() {
     this.loggedUserService.currentUser.subscribe(
@@ -36,23 +47,23 @@ export class LearnIntermediateComponent {
       console.log('base', this.baseLanguage, 'other', this.otherLanguage);
       this.userLanguages = Object.keys(this.words[this.wordIdx].translation);
       // this.wordIdx = this.randomService.randomInt(0, this.words.length - 1);
-      this.chosenAnswers = this.randomService.uniqueRandomArray(
-        4,
-        this.words,
-        this.chosenWords[this.wordIdx]
-      );
+      this.chooseAnswers();
       this.nextTranslations();
       console.log('todas las palabras', this.words);
 
-      let random = this.randomService.randomInt(0, 3);
-      this.chosenAnswers[random] = this.chosenWords[this.wordIdx];
-      console.log(
-        'palabra correcta',
-        random,
-        'palabra',
-        this.chosenWords[this.wordIdx]
+      this.buttons.forEach((element: any) => {
+        console.log('button', element.word, 'selected', element.selected);
+      });
+
+      this.voicess = window.speechSynthesis.getVoices();
+      let foundVoice = this.languages.find(
+        (element) => element.language == this.otherLanguage
       );
-      console.log('palabras elegidas', this.chosenAnswers);
+
+      console.log('i found', foundVoice);
+      if (foundVoice) {
+        this.foundVoice = foundVoice.reader;
+      }
     }
   }
 
@@ -75,11 +86,53 @@ export class LearnIntermediateComponent {
     }
   }
 
-  nextWordSemiAdvanced() {
+  async nextWordSemiAdvanced() {
     if (!this.words) {
       return;
     }
-    this.nextWord();
+    this.buttons.forEach((element: any) => {
+      element.selected = false;
+    });
+
+    if (this.intermediateConfirm == this.chosenWords[this.wordIdx].word) {
+      this.confirmStatus = 'Correct';
+      await this.timeService.delay(1000);
+      this.confirmStatus = '';
+      this.errorIdx = 0;
+      this.nextWord();
+      this.chooseAnswers();
+
+      return;
+    }
+
+    if (this.errorIdx == 2) {
+      this.confirmStatus =
+        'The correct answer is: ' + this.chosenWords[this.wordIdx].word;
+      this.errorIdx = 0;
+      this.chooseAnswers();
+      this.nextWord();
+    } else {
+      this.confirmStatus = 'Wrong';
+      this.intermediateConfirm = '';
+      this.errorIdx++;
+    }
+    await this.timeService.delay(1000);
+    this.confirmStatus = '';
+
+    console.log('chosen', this.chosenAnswers);
+    return;
+  }
+
+  nextTranslations() {
+    if (this.loggedUser) {
+      this.userTranslations =
+        this.chosenWords[this.wordIdx].translation[
+          this.loggedUser.baseLanguage
+        ];
+    }
+  }
+
+  chooseAnswers() {
     this.chosenAnswers = this.randomService.uniqueRandomArray(
       4,
       this.words,
@@ -87,18 +140,51 @@ export class LearnIntermediateComponent {
     );
     let random = this.randomService.randomInt(0, 3);
     this.chosenAnswers[random] = this.chosenWords[this.wordIdx];
+    console.log(
+      'palabra correcta',
+      random,
+      'palabra',
+      this.chosenWords[this.wordIdx]
+    );
+    console.log('palabras elegidas', this.chosenAnswers);
+    this.buttons = [];
+    this.chosenAnswers.forEach((element: any) => {
+      this.buttons.push({
+        word: element,
+        selected: false,
+      });
+    });
   }
 
-  nextTranslations() {
-    switch (this.baseLanguage) {
-      case 'english':
-        this.userTranslations =
-          this.chosenWords[this.wordIdx].translation.english;
-        break;
-      case 'polish':
-        this.userTranslations =
-          this.chosenWords[this.wordIdx].translation.polish;
-        break;
+  selectButton(j: number) {
+    this.buttons[j].selected = !this.buttons[j].selected;
+    if (this.buttons[j].selected) {
+      this.intermediateConfirm = this.buttons[j].word.word;
+    } else {
+      this.intermediateConfirm = '';
     }
+    for (let i = 0; i < this.buttons.length; i++) {
+      if (i != j) {
+        this.buttons[i].selected = false;
+      }
+
+      console.log(i, this.buttons[i].selected);
+    }
+    console.log('answer selectado', this.intermediateConfirm);
+
+    var message = new SpeechSynthesisUtterance();
+    var voices = window.speechSynthesis.getVoices();
+    let wonsisko = this.foundVoice;
+    // Find the voice you want to use
+    var voice = voices.find(function (voice) {
+      return voice.name === wonsisko;
+    });
+    if (!voice) {
+      return;
+    }
+
+    message.voice = voice;
+    message.text = this.intermediateConfirm;
+    window.speechSynthesis.speak(message);
   }
 }

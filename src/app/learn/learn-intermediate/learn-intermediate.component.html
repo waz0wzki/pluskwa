@@ -16,11 +16,26 @@
   />
 
   <section class="four-btns">
-    @for (item of chosenAnswers; track $index) {
-    <button>{{ item.word }}</button>
+    @for (item of buttons; track $index) {
+    <button
+      [ngClass]="item.selected ? 'chosen-four-btn' : ''"
+      (click)="selectButton($index)"
+    >
+      {{ item.word.word }}
+    </button>
     }
   </section>
 
+  @if(confirmStatus!="") {
+  <label
+    class="bgimage"
+    [ngClass]="{
+      wrong: confirmStatus == 'Wrong',
+      correct: confirmStatus == 'Correct'
+    }"
+    >{{ confirmStatus }}</label
+  >
+  } @if(confirmStatus=="") {
   <button class="deepskyblue" (click)="nextWordSemiAdvanced()">CONFIRM</button>
-  }
+  } }
 </section>

@@ -1,133 +1,133 @@
 /* You can add global styles to this file, and also import other style files */
-body
-{
-    margin: 0;
-    // background-image: url(assets/white_carbon.webp);
-    background-image: url(assets/bgc2.jpg);
-    
+body {
+  margin: 0;
+  // background-image: url(assets/white_carbon.webp);
+  background-image: url(assets/bgc2.jpg);
 }
 
-
-
-*
-{
-    font-family: Cascadia Mono !important;
+* {
+  font-family: Cascadia Mono !important;
+  --clean: white;
+  --bgimg: url(assets/sandpaper.webp);
 }
 
-.crimson
-{
-    background-color: crimson;
-    border: 2px solid darkred;
-    color: white;
-    &:hover
-    {
-        cursor: pointer;
-        outline: 1px solid darkred;
-    }
+.crimson {
+  background-color: crimson;
+  border: 2px solid darkred;
+  color: white;
+  &:hover {
+    cursor: pointer;
+    outline: 1px solid darkred;
+  }
 }
 
-.deepskyblue
-{
-    background-color: deepskyblue;
-    border: 2px solid dodgerblue;
-    &:hover
-    {
-        cursor: pointer;
-        outline: 1px solid dodgerblue;
-    }
+.deepskyblue {
+  background-color: deepskyblue;
+  border: 2px solid dodgerblue;
+  &:hover {
+    cursor: pointer;
+    outline: 1px solid dodgerblue;
+  }
 }
 
-.springgreen
-{
-    background-color: springgreen;
-    border: 2px solid mediumseagreen;
-    &:hover
-    {
-        cursor: pointer;
-        outline: 1px solid mediumseagreen;
-    }
+.springgreen {
+  background-color: springgreen;
+  border: 2px solid mediumseagreen;
+  &:hover {
+    cursor: pointer;
+    outline: 1px solid mediumseagreen;
+  }
 }
 
-.orange
-{
-    background-color: orange;
-    border: 2px solid tomato;
-    &:hover
-    {
-        cursor: pointer;
-        outline: 1px solid tomato;
-    }
+.orange {
+  background-color: orange;
+  border: 2px solid tomato;
+  &:hover {
+    cursor: pointer;
+    outline: 1px solid tomato;
+  }
 }
 
-.bgimage
-{
-    background-image: url(assets/white_carbon.webp);
-    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    border: 2px solid gray;
-    // border-radius: 15px;
+.bgimage {
+  background-image: var(--bgimg);
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  border: 2px solid gray;
+  // border-radius: 15px;
 
-    // color: white;
-    // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
+  // color: white;
+  // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-button, input:not([type='checkbox']), select, option, label
-{
-    
-    border-radius: 500px !important;
-    border: 2px solid grey;
-    text-align: center;
-    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    
+button,
+input:not([type="checkbox"]),
+select,
+option,
+label {
+  border-radius: 500px !important;
+  border: 2px solid grey;
+  text-align: center;
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }
 
-button
-{
-    transition: 0.1s ease-in-out;
-    &:hover
-    {
-        transform: scale(1.05);
-    }
+.hard {
+  border: 3px solid crimson;
 }
 
-
-
-
-h2,h3
-{
-    border-radius: 500px;
-    border: 2px solid grey;
-    background-image: url(assets/white_carbon.webp);
-    width: 200px;
-    margin: 20px auto;
-    padding: 5px 0;
-    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-}
-select
-{
-    &:hover
-    {
-        cursor: pointer;
-    }
-
+.easy {
+  border: 3px solid green;
 }
 
-.learn-img
-{
-    border-radius: 15px;
+.medium {
+  border: 3px solid gold;
 }
 
-.hover-grow
-{
-    transition: 0.1s ease-in-out;
-    &:hover
-    {
-        transform: scale(1.05);
-    }
+.correct {
+  color: green;
+  border-color: green;
+}
+
+.wrong {
+  color: crimson;
+  border-color: crimson;
+}
+
+button {
+  transition: 0.1s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+h2,
+h3 {
+  border-radius: 500px;
+  // color: var(--clean);
+  border: 2px solid grey;
+  background-image: var(--bgimg);
+  width: 200px;
+  margin: 20px auto;
+  padding: 5px 0;
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+}
+select {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.learn-img {
+  border-radius: 15px;
+}
+
+.hover-grow {
+  transition: 0.1s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 }

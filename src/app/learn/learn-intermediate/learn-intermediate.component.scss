@@ -50,10 +50,23 @@
       cursor: pointer;
       border-radius: 5px;
     }
-    &:focus {
-      background-color: yellow;
-    }
+    // &:focus {
+    //   color: gold;
+    //   border-color: gold;
+    // }
   }
+}
+
+.chosen-four-btn {
+  color: gold;
+  border-color: gold;
+}
+
+label {
+  padding: 5px;
+  width: 150px;
+  margin: auto;
+  font-size: 1em;
 }
 
 @media screen and (max-width: 500px) {

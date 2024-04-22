@@ -421,6 +421,25 @@
             "Comi los cereales en la manana"
           ],
           "category": ["nouns", "vehicles"]
+        },
+        {
+          "idw": 10,
+          "word": "Otorrinolaringólogo",
+          "language": "spanish",
+          "wordProgress": 0,
+          "status": "i don't know",
+          "difficulty": "hard",
+          "imgUrl": "icons8-image-64.png",
+          "imgAlt": "otolaryngologist",
+          "translation": {
+            "english": ["otolaryngologist"],
+            "polish": ["otolaryngolog"]
+          },
+          "example": [
+            "Tengo que despertame temprano manana",
+            "Comi los cereales en la manana"
+          ],
+          "category": ["nouns", "vehicles"]
         }
       ]
     },
