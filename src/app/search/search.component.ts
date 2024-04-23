@@ -45,7 +45,10 @@ export class SearchComponent {
     this.loginRedirect.redirect(this.loggedUser, this.router);
     if (this.loggedUser) {
       // this.words = this.loggedUser.word;
-      this.words = this.wordSetService;
+      this.wordSetService.currentWordSet.subscribe(
+        (words) => (this.words = words)
+      );
+      console.log('wordss', this.words);
       this.categories = this.loggedUser.category;
       if (this.words) {
         this.searchedWords = [];

@@ -32,22 +32,16 @@ export class LearnComponent {
     );
     if (this.loggedUser) {
       console.log(this.loggedUser, 'lang', this.loggedUser.otherLanguage);
-      this.words = this.loggedUser.word;
       this.condition = this.loggedUser.learningdifficulty;
-      console.log('words', this.words);
+      console.log('diff', this.condition);
+      this.wordSetService.currentWordSet.subscribe(
+        (words) => (this.words = words)
+      );
+      console.log('i have received', this.words);
+      this.chooseRandomWords(this.words);
     }
     this.loginRedirect.redirect(this.loggedUser, this.router);
-    this.words?.forEach((element) => {
-      if (!this.loggedUser) {
-        return;
-      }
-      if (element.language == this.loggedUser.otherLanguage) {
-        this.chosenWords.push(element);
-      }
-    });
-    console.log('ive chosen', this.chosenWords);
-    this.wordSetService.changeWordSetSource(this.chosenWords);
-    this.chooseRandomWords(this.chosenWords);
+
     // console.log('allwords', this.words);
     // console.log('aszka baszka ma malego ptaszka', this.chosenWords);
   }
@@ -58,7 +52,7 @@ export class LearnComponent {
     }
     this.chosenWords = this.randomService.uniqueRandomArray(
       4,
-      this.chosenWords,
+      this.words,
       null
     );
   }

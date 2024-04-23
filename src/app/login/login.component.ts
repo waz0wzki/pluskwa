@@ -3,6 +3,7 @@ import { UserInterface } from '../interfaces/user.interface';
 import { UserService } from '../services/user.service';
 import { LoggedUserService } from '../services/loggedUser.service';
 import { Router } from '@angular/router';
+import { WordSetService } from '../services/word-set.service';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +17,16 @@ export class LoginComponent {
   loggedInIndex = 0;
   loggedUser = {} as UserInterface;
   loginError = '';
+  words: any = [];
+  chosenWords: any = [];
 
   users: UserInterface[] = [];
 
   constructor(
     private userService: UserService,
     private loggedUserService: LoggedUserService,
-    private router: Router
+    private router: Router,
+    private wordSetService: WordSetService
   ) {}
 
   ngOnInit() {
@@ -32,14 +36,6 @@ export class LoginComponent {
         (user) => (this.loggedUser = user)
       );
     });
-
-    for (let i = 0; i < 5; i++) {
-      let cipka = '';
-      for (let j = 1; j < i + 1; j++) {
-        cipka += '*';
-      }
-      console.log(cipka);
-    }
   }
 
   signIn() {
@@ -60,7 +56,19 @@ export class LoginComponent {
     if (this.loggedIn) {
       this.loggedUser = this.users[this.loggedInIndex];
       this.loggedUserService.changeLoggedUser(this.loggedUser);
-      this.router.navigate(['settings']);
+      this.words = this.loggedUser.word;
+      this.words?.forEach((element: any) => {
+        if (!this.loggedUser) {
+          return;
+        }
+        if (element.language == this.loggedUser.otherLanguage) {
+          this.chosenWords.push(element);
+        }
+      });
+      console.log('ive chosen', this.chosenWords);
+      this.wordSetService.changeWordSetSource(this.chosenWords);
+
+      this.router.navigate(['learn']);
     } else {
       this.loginError = 'Incorrect email or password';
     }
