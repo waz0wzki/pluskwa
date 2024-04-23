@@ -11,7 +11,8 @@ import { STATUS_OPTIONS } from '../../models/status-options';
   styleUrl: './learn-beginnner.component.scss',
 })
 export class LearnBeginnnerComponent {
-  words? = {} as WordInterface[];
+  // words? = {} as WordInterface[];
+  @Input() words: any;
   loggedUser? = {} as UserInterface;
   wordIdx = 0;
   transIdx = 0;
@@ -35,7 +36,7 @@ export class LearnBeginnnerComponent {
     );
 
     if (this.loggedUser) {
-      this.words = this.loggedUser.word;
+      // this.words = this.chosenWords;
       this.baseLanguage = this.loggedUser.baseLanguage;
       this.otherLanguage = this.loggedUser.otherLanguage;
       console.log('base', this.baseLanguage, 'other', this.otherLanguage);

@@ -29,13 +29,19 @@ export class LearnComponent {
       (user) => (this.loggedUser = user)
     );
     if (this.loggedUser) {
-      console.log(this.loggedUser);
+      console.log(this.loggedUser, 'lang', this.loggedUser.otherLanguage);
       this.words = this.loggedUser.word;
       this.condition = this.loggedUser.learningdifficulty;
       console.log('words', this.words);
     }
     this.loginRedirect.redirect(this.loggedUser, this.router);
-    this.chooseRandomWords(this.words);
+    this.words?.forEach((element) => {
+      if (element.language == this.loggedUser?.otherLanguage) {
+        this.chosenWords.push(element);
+      }
+    });
+    console.log('ive chosen', this.chosenWords);
+    this.chooseRandomWords(this.chosenWords);
     // console.log('allwords', this.words);
     // console.log('aszka baszka ma malego ptaszka', this.chosenWords);
   }
