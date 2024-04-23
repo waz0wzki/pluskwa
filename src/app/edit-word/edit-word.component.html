@@ -22,7 +22,7 @@
   </section>
 
   <section class="edit-row">
-    <label for="" class="bgimage">DELETE TRANSLATION</label>
+    <label for="" class="bgimage delete">DELETE TRANSLATION</label>
     <select name="" id="">
       <option value="" disabled selected hidden>Translation</option>
       @for (item of editedWord.translation.english; track $index) {
@@ -44,7 +44,7 @@
   </section>
 
   <section class="edit-row">
-    <label for="" class="bgimage">DELETE EXAMPLE</label>
+    <label for="" class="bgimage delete">DELETE EXAMPLE</label>
     <select name="" id="">
       <option value="" disabled selected hidden>Example</option>
       @for (item of editedWord.example; track $index) {
@@ -69,7 +69,7 @@
     </section>
   </section>
   <section class="edit-row">
-    <label for="" class="bgimage">DELETE CATEGORY</label>
+    <label for="" class="bgimage delete">DELETE CATEGORY</label>
     <select name="" id="">
       <option value="" selected disabled hidden>Word categories</option>
       @for (item of editedWord.category; track $index) {
@@ -86,7 +86,7 @@
     <select name="status" id="">
       <option value="" selected disabled hidden>Status</option>
       @for (item of statusSelect; track $index) {
-      <option value="item">{{ item.value }}</option>
+      <option value="item" [selected]="item.selected">{{ item.value }}</option>
       }
     </select>
     <section class="buttons">
@@ -99,7 +99,7 @@
     <select name="difficulty" id="">
       <option value="" selected disabled hidden>Difficulty</option>
       @for (item of difficultySelect; track $index) {
-      <option value="item">{{ item.value }}</option>
+      <option value="item" [selected]="item.selected">{{ item.value }}</option>
       }
     </select>
     <section class="buttons">
@@ -111,8 +111,10 @@
     <button class="springgreen">ADD AS NEW WORD</button>
   </section>
 
+  <h3>CATEGORY</h3>
+
   <section class="edit-row">
-    <label for="" class="bgimage">ADD CATEGORY</label>
+    <label for="" class="bgimage">ADD NEW CATEGORY</label>
     <input type="text" name="" />
     <section class="buttons">
       <button><img src="assets/icons8-add-64.png" alt="" /></button>
@@ -120,9 +122,9 @@
   </section>
 
   <section class="edit-row">
-    <label for="" class="bgimage">DELETE CATEGORY</label>
+    <label for="" class="bgimage delete">DELETE CATEGORY</label>
     <select name="" id="">
-      <option value="" selected disabled hidden>Word categories</option>
+      <option value="" selected disabled hidden>All categories</option>
       @for (item of loggedUser?.category; track $index) {
       <option value="item">{{ item }}</option>
       }

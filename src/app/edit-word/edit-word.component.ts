@@ -55,5 +55,23 @@ export class EditWordComponent {
       this.difficultySelect.push(difficultySelectOption);
     });
     console.log('difdfdfdf', this.difficultySelect);
+
+    STATUS_OPTIONS.forEach((element) => {
+      let s = false;
+      if (!this.editedWord) {
+        return;
+      }
+
+      if (this.editedWord.status == element.value) {
+        s = true;
+      }
+
+      let statusSelectOption = {
+        value: element.value,
+        selected: s,
+      };
+
+      this.statusSelect.push(statusSelectOption);
+    });
   }
 }
