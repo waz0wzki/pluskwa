@@ -8,6 +8,7 @@ import { Route, Router } from '@angular/router';
 import { DIFFICULTY_OPTIONS } from '../models/difficulty-options';
 import { STATUS_OPTIONS } from '../models/status-options';
 import { LANGUAGES } from '../models/languages';
+import { languageInterface } from '../interfaces/language.interface';
 
 @Component({
   selector: 'app-search',
@@ -60,5 +61,28 @@ export class SearchComponent {
       this.editedWordService.changeEditedWord(this.editedWord);
       console.log(this.editedWord);
     }
+  }
+
+  addWord() {
+    if (!this.loggedUser) {
+      return;
+    }
+    let newTranslations = [] as languageInterface;
+
+    this.editedWord = {
+      idw: 0,
+      word: 'new word',
+      language: this.loggedUser?.otherLanguage,
+      wordProgress: 0,
+      status: "i don't know",
+      difficulty: 'easy',
+      imgUrl: 'icons8-image-64.png',
+      imgAlt: '',
+      translation: newTranslations,
+      example: [],
+      category: [],
+    };
+
+    this.editedWordService.changeEditedWord(this.editedWord);
   }
 }

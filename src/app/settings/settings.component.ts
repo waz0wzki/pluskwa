@@ -72,12 +72,13 @@ export class SettingsComponent {
           value: element.value,
           selected: d,
         };
+
         this.difficultySelect.push(difficultySelectOption);
       });
 
       STATUS_CHANGE_OPTIONS.forEach((element) => {
         let sC = false;
-        if (this.loggedUser.learningdifficulty == element.value) {
+        if (this.loggedUser.statuschange == element.value) {
           sC = true;
         }
 
@@ -85,6 +86,7 @@ export class SettingsComponent {
           value: element.value,
           selected: sC,
         };
+        console.log('select', selectChangeSelectOption);
         this.statusSelect.push(selectChangeSelectOption);
       });
     });

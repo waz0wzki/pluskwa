@@ -98,6 +98,7 @@ input[type="radio"] {
   display: block;
   &:checked {
     accent-color: #1ed760;
+    color: red;
   }
   &:hover {
     background-color: gray;

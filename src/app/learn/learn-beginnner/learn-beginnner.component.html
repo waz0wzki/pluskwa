@@ -1,6 +1,7 @@
 <main>
   @if(((loggedUser | json) != ({} | json)) && ((words | json) != ({} | json)) &&
   words && chosenWords) {
+
   <section class="word-section">
     <h3 class="bgimage">{{ chosenWords[wordIdx].word }}</h3>
 
@@ -29,22 +30,5 @@
 
     <button class="deepskyblue" (click)="nextWord()">CONFIRM</button>
   </section>
-  @if(!statusChange) {
-  <section class="word-status bgimage">
-    <h4>{{ chosenWords[wordIdx].word }}</h4>
-
-    @for (item of statusOptions; track $index) {
-    <label>
-      <input
-        type="radio"
-        class="radio"
-        name="radio-checkbox"
-        value="{{ item.value }}"
-      />{{ item.value }}
-    </label>
-    }
-
-    <button>Confirm</button>
-  </section>
-  } }
+  }
 </main>

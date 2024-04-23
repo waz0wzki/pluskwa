@@ -10,7 +10,13 @@
 
       <section class="buttons">
         <button class="springgreen">SEARCH</button>
-        <button class="deepskyblue" routerLink="../edit-word">ADD</button>
+        <button
+          class="deepskyblue"
+          routerLink="../edit-word"
+          (click)="addWord()"
+        >
+          ADD
+        </button>
       </section>
     </section>
 
