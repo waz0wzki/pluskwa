@@ -9,9 +9,9 @@ export class UserService {
 
   getUsers(): Observable<UserInterface[]> {
     // console.log('kradzieje',this.http.get<UserInterface>('http://localhost:3000/user'))
-    return this.http.get<UserInterface[]>(
-      'https://waz0wzki.github.io/pluskwa/db.json'
-    );
-    // return this.http.get<UserInterface[]>('http://localhost:3000/user');
+    // return this.http.get<UserInterface[]>(
+    //   'https://waz0wzki.github.io/pluskwa/db.json'
+    // );
+    return this.http.get<UserInterface[]>('http://localhost:3000/user');
   }
 }

@@ -31,7 +31,8 @@ export class LoginComponent {
 
   ngOnInit() {
     this.userService.getUsers().subscribe((ures: any) => {
-      this.users = ures.user;
+      // this.users = ures.user;
+      this.users = ures;
       this.loggedUserService.currentUser.subscribe(
         (user) => (this.loggedUser = user)
       );
