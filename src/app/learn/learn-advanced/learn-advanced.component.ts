@@ -102,15 +102,17 @@ export class LearnAdvancedComponent {
     if (this.errorIdx == 2) {
       this.confirmStatus =
         'The correct answer is: ' + this.chosenWords[this.wordIdx].word;
+      await this.timeService.delay(1000);
       this.errorIdx = 0;
 
       this.nextWord();
     } else {
       this.confirmStatus = 'Wrong';
+      await this.timeService.delay(1000);
       this.advancedConfirm = '';
       this.errorIdx++;
     }
-    await this.timeService.delay(1000);
+
     this.confirmStatus = '';
     return;
   }

@@ -174,7 +174,7 @@
         },
         {
           "idw": 8,
-          "word": "el avion",
+          "word": "el avión",
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
@@ -186,14 +186,14 @@
             "polish": ["samolot"]
           },
           "example": [
-            "Tengo miedo para volar en el avion",
-            "No comprendo porque los aviones pueden volar"
+            "Tengo miedo para volar en el avión",
+            "No comprendo porque los aviónes pueden volar"
           ],
           "category": ["nouns", "vehicles"]
         },
         {
           "idw": 9,
-          "word": "manana",
+          "word": "mañana",
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
@@ -205,8 +205,8 @@
             "polish": ["rano", "jutro"]
           },
           "example": [
-            "Tengo que despertame temprano manana",
-            "Comi los cereales en la manana"
+            "Tengo que despertame temprano mañana",
+            "Comi los cereales en la mañana"
           ],
           "category": ["nouns", "vehicles"]
         },
@@ -364,7 +364,7 @@
         },
         {
           "idw": 18,
-          "word": "l'avion",
+          "word": "l'avión",
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
@@ -376,8 +376,8 @@
             "polish": ["samolot"]
           },
           "example": [
-            "J'ai peur de prendre l'avion",
-            "Je ne comprends pas pourquoi les avions peuvent voler"
+            "J'ai peur de prendre l'avión",
+            "Je ne comprends pas pourquoi les avións peuvent voler"
           ],
           "category": ["nouns", "vehicles"]
         },
@@ -576,7 +576,7 @@
         },
         {
           "idw": 8,
-          "word": "el avion",
+          "word": "el avión",
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
@@ -588,14 +588,14 @@
             "polish": ["samolot"]
           },
           "example": [
-            "Tengo miedo para volar en el avion",
-            "No comprendo porque los aviones pueden volar"
+            "Tengo miedo para volar en el avión",
+            "No comprendo porque los aviónes pueden volar"
           ],
           "category": ["nouns", "vehicles"]
         },
         {
           "idw": 9,
-          "word": "manana",
+          "word": "mañana",
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
@@ -607,8 +607,8 @@
             "polish": ["rano", "jutro"]
           },
           "example": [
-            "Tengo que despertame temprano manana",
-            "Comi los cereales en la manana"
+            "Tengo que despertame temprano mañana",
+            "Comi los cereales en la mañana"
           ],
           "category": ["nouns", "vehicles"]
         },
@@ -626,8 +626,8 @@
             "polish": ["otolaryngolog"]
           },
           "example": [
-            "Tengo que despertame temprano manana",
-            "Comi los cereales en la manana"
+            "Tengo que despertame temprano mañana",
+            "Comi los cereales en la mañana"
           ],
           "category": ["nouns", "vehicles"]
         }
@@ -807,7 +807,7 @@
         },
         {
           "idw": 8,
-          "word": "el avion",
+          "word": "el avión",
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
@@ -819,14 +819,14 @@
             "polish": ["samolot"]
           },
           "example": [
-            "Tengo miedo para volar en el avion",
-            "No comprendo porque los aviones pueden volar"
+            "Tengo miedo para volar en el avión",
+            "No comprendo porque los aviónes pueden volar"
           ],
           "category": ["nouns", "vehicles"]
         },
         {
           "idw": 9,
-          "word": "manana",
+          "word": "mañana",
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
@@ -838,8 +838,8 @@
             "polish": ["rano", "jutro"]
           },
           "example": [
-            "Tengo que despertame temprano manana",
-            "Comi los cereales en la manana"
+            "Tengo que despertame temprano mañana",
+            "Comi los cereales en la mañana"
           ],
           "category": ["nouns", "vehicles"]
         },
@@ -997,7 +997,7 @@
         },
         {
           "idw": 18,
-          "word": "l'avion",
+          "word": "l'avión",
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
@@ -1009,8 +1009,8 @@
             "polish": ["samolot"]
           },
           "example": [
-            "J'ai peur de prendre l'avion",
-            "Je ne comprends pas pourquoi les avions peuvent voler"
+            "J'ai peur de prendre l'avión",
+            "Je ne comprends pas pourquoi les avións peuvent voler"
           ],
           "category": ["nouns", "vehicles"]
         },

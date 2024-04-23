@@ -113,15 +113,17 @@ export class LearnIntermediateComponent {
     if (this.errorIdx == 2) {
       this.confirmStatus =
         'The correct answer is: ' + this.chosenWords[this.wordIdx].word;
+      await this.timeService.delay(1000);
       this.errorIdx = 0;
       this.chooseAnswers();
       this.nextWord();
     } else {
       this.confirmStatus = 'Wrong';
+      await this.timeService.delay(1000);
       this.intermediateConfirm = '';
       this.errorIdx++;
     }
-    await this.timeService.delay(1000);
+
     this.confirmStatus = '';
 
     console.log('chosen', this.chosenAnswers);
