@@ -9,9 +9,9 @@
     alt="{{ chosenWords[wordIdx].imgAlt }}"
     class="bgimage learn-img"
     [ngClass]="{
-      hard: chosenWords[wordIdx].difficulty == 'hard',
-      easy: chosenWords[wordIdx].difficulty == 'easy',
-      medium: chosenWords[wordIdx].difficulty == 'medium'
+      advanced: chosenWords[wordIdx].difficulty == 'advanced',
+      beginner: chosenWords[wordIdx].difficulty == 'beginner',
+      intermediate: chosenWords[wordIdx].difficulty == 'intermediate'
     }"
   />
 

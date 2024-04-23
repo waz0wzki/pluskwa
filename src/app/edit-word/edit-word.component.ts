@@ -17,9 +17,11 @@ import { DIFFICULTY_OPTIONS } from '../models/difficulty-options';
 export class EditWordComponent {
   editedWord? = {} as WordInterface;
   loggedUser? = {} as UserInterface;
+  difficultySelect: any = [];
+  statusSelect: any = [];
 
-  public readonly STATUS_OPTIONS = STATUS_OPTIONS;
-  public readonly DIFFICULTY_OPTIONS = DIFFICULTY_OPTIONS;
+  // public readonly STATUS_OPTIONS = STATUS_OPTIONS;
+  // public readonly DIFFICULTY_OPTIONS = DIFFICULTY_OPTIONS;
 
   constructor(
     private editedWordService: EditedWordService,
@@ -36,5 +38,22 @@ export class EditWordComponent {
     this.editedWordService.currentUser.subscribe(
       (word) => (this.editedWord = word)
     );
+
+    DIFFICULTY_OPTIONS.forEach((element) => {
+      let d = false;
+      if (!this.editedWord) {
+        return;
+      }
+      if (this.editedWord.difficulty == element.value) {
+        d = true;
+      }
+      let difficultySelectOption = {
+        value: element.value,
+        selected: d,
+      };
+
+      this.difficultySelect.push(difficultySelectOption);
+    });
+    console.log('difdfdfdf', this.difficultySelect);
   }
 }

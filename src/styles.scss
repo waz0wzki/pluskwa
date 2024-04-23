@@ -32,10 +32,10 @@ body {
 
 .springgreen {
   background-color: springgreen;
-  border: 2px solid mediumseagreen;
+  border: 2px solid intermediateseagreen;
   &:hover {
     cursor: pointer;
-    outline: 1px solid mediumseagreen;
+    outline: 1px solid intermediateseagreen;
   }
 }
 
@@ -73,15 +73,15 @@ label {
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }
 
-.hard {
+.advanced {
   border: 3px solid crimson;
 }
 
-.easy {
+.beginner {
   border: 3px solid green;
 }
 
-.medium {
+.intermediate {
   border: 3px solid gold;
 }
 
@@ -114,6 +114,7 @@ h3 {
   -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  text-align: center;
 }
 select {
   &:hover {

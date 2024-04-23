@@ -26,7 +26,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-road-96.png",
           "imgAlt": "road",
           "translation": {
@@ -45,7 +45,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-car-96.png",
           "imgAlt": "car",
           "translation": {
@@ -64,7 +64,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i repeat",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-beer-96.png",
           "imgAlt": "beer",
           "translation": {
@@ -83,7 +83,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i know",
-          "difficulty": "hard",
+          "difficulty": "advanced",
           "imgUrl": "icons8-computer-96.png",
           "imgAlt": "computer",
           "translation": {
@@ -102,7 +102,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-cow-96.png",
           "imgAlt": "cow",
           "translation": {
@@ -121,7 +121,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-horse-96.png",
           "imgAlt": "caballo",
           "translation": {
@@ -140,7 +140,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i know",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-cockroach-96.png",
           "imgAlt": "cockroach",
           "translation": {
@@ -159,7 +159,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i repeat",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-pants-96.png",
           "imgAlt": "pants",
           "translation": {
@@ -178,7 +178,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-plane-96.png",
           "imgAlt": "plane",
           "translation": {
@@ -197,7 +197,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-morning-96.png",
           "imgAlt": "morning",
           "translation": {
@@ -216,7 +216,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-road-96.png",
           "imgAlt": "road",
           "translation": {
@@ -235,7 +235,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-car-96.png",
           "imgAlt": "car",
           "translation": {
@@ -254,7 +254,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i repeat",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-beer-96.png",
           "imgAlt": "beer",
           "translation": {
@@ -273,7 +273,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i know",
-          "difficulty": "hard",
+          "difficulty": "advanced",
           "imgUrl": "icons8-computer-96.png",
           "imgAlt": "computer",
           "translation": {
@@ -292,7 +292,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-cow-96.png",
           "imgAlt": "cow",
           "translation": {
@@ -311,7 +311,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-horse-96.png",
           "imgAlt": "caballo",
           "translation": {
@@ -330,7 +330,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i know",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-cockroach-96.png",
           "imgAlt": "cockroach",
           "translation": {
@@ -349,7 +349,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i repeat",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-pants-96.png",
           "imgAlt": "pants",
           "translation": {
@@ -368,7 +368,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-plane-96.png",
           "imgAlt": "plane",
           "translation": {
@@ -387,7 +387,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-morning-96.png",
           "imgAlt": "morning",
           "translation": {
@@ -428,7 +428,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-road-96.png",
           "imgAlt": "road",
           "translation": {
@@ -447,7 +447,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-car-96.png",
           "imgAlt": "car",
           "translation": {
@@ -466,7 +466,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i repeat",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-beer-96.png",
           "imgAlt": "beer",
           "translation": {
@@ -485,7 +485,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i know",
-          "difficulty": "hard",
+          "difficulty": "advanced",
           "imgUrl": "icons8-computer-96.png",
           "imgAlt": "computer",
           "translation": {
@@ -504,7 +504,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-cow-96.png",
           "imgAlt": "cow",
           "translation": {
@@ -523,7 +523,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-horse-96.png",
           "imgAlt": "caballo",
           "translation": {
@@ -542,7 +542,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i know",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-cockroach-96.png",
           "imgAlt": "cockroach",
           "translation": {
@@ -561,7 +561,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i repeat",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-pants-96.png",
           "imgAlt": "pants",
           "translation": {
@@ -580,7 +580,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-plane-96.png",
           "imgAlt": "plane",
           "translation": {
@@ -599,7 +599,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-morning-96.png",
           "imgAlt": "morning",
           "translation": {
@@ -618,7 +618,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i don't know",
-          "difficulty": "hard",
+          "difficulty": "advanced",
           "imgUrl": "icons8-image-64.png",
           "imgAlt": "otolaryngologist",
           "translation": {
@@ -659,7 +659,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-road-96.png",
           "imgAlt": "road",
           "translation": {
@@ -678,7 +678,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-car-96.png",
           "imgAlt": "car",
           "translation": {
@@ -697,7 +697,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i repeat",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-beer-96.png",
           "imgAlt": "beer",
           "translation": {
@@ -716,7 +716,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i know",
-          "difficulty": "hard",
+          "difficulty": "advanced",
           "imgUrl": "icons8-computer-96.png",
           "imgAlt": "computer",
           "translation": {
@@ -735,7 +735,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-cow-96.png",
           "imgAlt": "cow",
           "translation": {
@@ -754,7 +754,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-horse-96.png",
           "imgAlt": "caballo",
           "translation": {
@@ -773,7 +773,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i know",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-cockroach-96.png",
           "imgAlt": "cockroach",
           "translation": {
@@ -792,7 +792,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i repeat",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-pants-96.png",
           "imgAlt": "pants",
           "translation": {
@@ -811,7 +811,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-plane-96.png",
           "imgAlt": "plane",
           "translation": {
@@ -830,7 +830,7 @@
           "language": "spanish",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-morning-96.png",
           "imgAlt": "morning",
           "translation": {
@@ -849,7 +849,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-road-96.png",
           "imgAlt": "road",
           "translation": {
@@ -868,7 +868,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-car-96.png",
           "imgAlt": "car",
           "translation": {
@@ -887,7 +887,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i repeat",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-beer-96.png",
           "imgAlt": "beer",
           "translation": {
@@ -906,7 +906,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i know",
-          "difficulty": "hard",
+          "difficulty": "advanced",
           "imgUrl": "icons8-computer-96.png",
           "imgAlt": "computer",
           "translation": {
@@ -925,7 +925,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-cow-96.png",
           "imgAlt": "cow",
           "translation": {
@@ -944,7 +944,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-horse-96.png",
           "imgAlt": "caballo",
           "translation": {
@@ -963,7 +963,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i know",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-cockroach-96.png",
           "imgAlt": "cockroach",
           "translation": {
@@ -982,7 +982,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i repeat",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-pants-96.png",
           "imgAlt": "pants",
           "translation": {
@@ -1001,7 +1001,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "easy",
+          "difficulty": "beginner",
           "imgUrl": "icons8-plane-96.png",
           "imgAlt": "plane",
           "translation": {
@@ -1020,7 +1020,7 @@
           "language": "french",
           "wordProgress": 0,
           "status": "i learn",
-          "difficulty": "medium",
+          "difficulty": "intermediate",
           "imgUrl": "icons8-morning-96.png",
           "imgAlt": "morning",
           "translation": {

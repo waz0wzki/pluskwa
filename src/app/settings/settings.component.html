@@ -2,20 +2,21 @@
   <section>
     <section id="account">
       <h2>ACCOUNT SETTINGS</h2>
+
       <section class="inputs">
+        <label class="bgimage" for="email">New email</label>
         <input
           type="text"
           name="email"
           [(ngModel)]="newMail"
           placeholder="{{ newMail }}"
         />
-        <label class="bgimage" for="email">New email</label>
 
-        <input type="password" name="old-password" />
         <label class="bgimage" for="old-password">Old password</label>
+        <input type="password" name="old-password" />
 
-        <input type="password" name="new-password" />
         <label class="bgimage" for="new-password">New password</label>
+        <input type="password" name="new-password" />
       </section>
       <section class="buttons">
         <button class="deepskyblue">CHANGE</button>
@@ -29,6 +30,9 @@
       <h2>COURSE SETTINGS</h2>
 
       <section class="inputs">
+        <label class="bgimage" for="select-dificulty"
+          >Learning difficulty</label
+        >
         <select name="select-difficulty" id="">
           @for (item of difficultySelect; track $index) {
           <option [value]="item.value" [selected]="item.selected">
@@ -36,10 +40,8 @@
           </option>
           }
         </select>
-        <label class="bgimage" for="select-dificulty"
-          >Learning difficulty</label
-        >
 
+        <label class="bgimage" for="select-status-change">Status Change</label>
         <select name="select-status-change" id="">
           @for (item of statusSelect; track $index) {
           <option [value]="item.value" [selected]="item.selected">
@@ -47,7 +49,8 @@
           </option>
           }
         </select>
-        <label class="bgimage" for="select-status-change">Status Change</label>
+
+        <label for="base-language" class="bgimage">Base Language</label>
         <select name="base-language" id="">
           @for (item of languageSelect; track $index) {
           <option [value]="item.language" [selected]="item.baseLanguage">
@@ -55,7 +58,8 @@
           </option>
           }
         </select>
-        <label for="base-language" class="bgimage">Base Language</label>
+
+        <label for="other-language" class="bgimage">Other Language</label>
         <select name="other-language" id="">
           @for (item of languageSelect; track $index) {
           <option [value]="item.language" [selected]="item.otherLanguage">
@@ -63,7 +67,6 @@
           </option>
           }
         </select>
-        <label for="other-language" class="bgimage">Other Language</label>
       </section>
 
       <section class="buttons">
