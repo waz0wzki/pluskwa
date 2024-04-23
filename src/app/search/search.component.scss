@@ -72,6 +72,14 @@ h4 {
   border-radius: 15px;
   min-width: 150px;
   text-align: center;
+  label {
+    all: revert;
+    display: flex;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 input[type="checkbox"] {

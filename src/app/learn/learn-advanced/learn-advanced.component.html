@@ -15,6 +15,11 @@
   />
 
   <input type="text" [(ngModel)]="advancedConfirm" autofocus />
+  <section class="special-characters">
+    @if (specialCharacters) { @for (item of specialCharacters; track $index) {
+    <button class="special-char" (click)="insertChar(item)">{{ item }}</button>
+    } }
+  </section>
   @if(confirmStatus!="") {
   <label
     class="bgimage"

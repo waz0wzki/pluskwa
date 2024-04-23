@@ -3,6 +3,7 @@ import { WordInterface } from '../../interfaces/word.interface';
 import { UserInterface } from '../../interfaces/user.interface';
 import { LoggedUserService } from '../../services/loggedUser.service';
 import { RandomService } from '../../services/random.service';
+import { STATUS_OPTIONS } from '../../models/status-options';
 
 @Component({
   selector: 'app-learn-beginnner',
@@ -20,6 +21,8 @@ export class LearnBeginnnerComponent {
   otherLanguage = '';
   userLanguages: any;
   userTranslations: any;
+  statusOptions = STATUS_OPTIONS;
+  statusChange = false;
 
   constructor(
     private loggedUserService: LoggedUserService,

@@ -39,6 +39,7 @@
 .four-btns {
   display: flex;
   flex-wrap: wrap;
+
   width: 400px;
   gap: 30px;
   justify-content: space-around;
@@ -46,6 +47,8 @@
     width: 150px;
     font-size: 1em;
     padding: 5px;
+    overflow: scroll;
+    scrollbar-width: none;
     &:hover {
       cursor: pointer;
       border-radius: 5px;

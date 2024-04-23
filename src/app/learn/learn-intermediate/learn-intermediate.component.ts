@@ -174,6 +174,7 @@ export class LearnIntermediateComponent {
 
     var message = new SpeechSynthesisUtterance();
     var voices = window.speechSynthesis.getVoices();
+    console.log(voices);
     let wonsisko = this.foundVoice;
     // Find the voice you want to use
     var voice = voices.find(function (voice) {

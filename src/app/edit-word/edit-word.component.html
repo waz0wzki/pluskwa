@@ -63,18 +63,23 @@
   </section>
 
   <section class="edit-row">
-    <select name="" id="">
+    <select name="status" id="">
       <option value="" selected disabled hidden>Status</option>
       @for (item of STATUS_OPTIONS; track $index) {
       <option value="item">{{ item.value }}</option>
       }
     </select>
-    <select name="" id="">
+    <label for="status" class="bgimage">Status</label>
+  </section>
+
+  <section class="edit-row">
+    <select name="difficulty" id="">
       <option value="" selected disabled hidden>Difficulty</option>
       @for (item of DIFFICULTY_OPTIONS; track $index) {
       <option value="item">{{ item.value }}</option>
       }
     </select>
+    <label for="difficulty" class="bgimage">Difficulty</label>
   </section>
 
   <section class="final-buttons">

@@ -90,6 +90,18 @@ main {
 
 label {
   padding: 5px;
+  width: 200px;
+  margin: auto;
+}
+
+.special-characters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  button {
+    width: 35px;
+  }
 }
 
 // .hard

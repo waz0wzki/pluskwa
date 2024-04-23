@@ -14,8 +14,4 @@ export class UserService {
     );
     // return this.http.get<UserInterface[]>('http://localhost:3000/user');
   }
-
-  getLoggedUser(): Observable<UserInterface> {
-    return this.http.get<UserInterface>('http://localhost:3000/user/0');
-  }
 }

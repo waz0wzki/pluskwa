@@ -61,7 +61,7 @@ body {
 }
 
 button,
-input:not([type="checkbox"]),
+input:not([type="checkbox"], [type="radio"]),
 select,
 option,
 label {

@@ -7,7 +7,7 @@
       "baseLanguage": "english",
       "otherLanguage": "spanish",
       "learningdifficulty": "beginner",
-      "statuschange": "manual",
+      "statuschange": "automatic",
       "category": [
         "animals",
         "food",

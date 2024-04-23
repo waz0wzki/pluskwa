@@ -1,141 +1,146 @@
-main
-{
-    padding: 30px;
+main {
+  // padding: 30px;
+  position: relative;
 }
 
-.learn-section
-{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    // align-content: stretch;
-    justify-content: center;
-    align-items: center;
-    // > img
-    // {
-    //     object-fit: contain;
-    //     max-height: 100%;
-    //     max-width: 100%;
-    //     border: 1px solid 
-    // }
-    text-align: center;
-}
-
-
-
-.word-section
-{
-    padding: 30px;
-    display: flex;
-    gap: 30px;
-    flex-direction: column;
-    justify-content: center;
-    button
-    {
-        margin: auto;
-        width: 200px;
-        font-size: 1em;
-        padding: 5px;
-        &:hover
-        {
-            cursor: pointer;
-        }
-    }
-    input
-    {
-        padding: 5px;
-        font-size: 1em;
-        box-sizing: content-box;
-        width: 200px;
-        color: gray;
-        &:focus
-        {
-            color: black;
-        }
-    }
-    img
-    {
-        width: 100px;
-        margin: auto;
-        padding: 10px;
-    }
-    h3
-    {
-        text-align: center;
-        padding: 10px;
-        width: 200px;
-        margin: auto;
-    }
-}
-
-.button-section
-{
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    width: 400px;
-    justify-content: space-around;
+.word-section {
+  padding: 30px;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: center;
+  button {
     margin: auto;
-    border-radius: 15px;
-    p
-    {
-        width: 200px;
-        text-align: center;
-        overflow-y: scroll;
-        white-space: nowrap;
-        scrollbar-width: none;
+    width: 200px;
+    font-size: 1em;
+    padding: 5px;
+    &:hover {
+      cursor: pointer;
     }
-    // p
-    // {
-    //     width: 200px;
-    //     text-align: center;
-    // }
-
-    button
-    {
-        width: 50px;
+  }
+  input:not([type="radio"]) {
+    padding: 5px;
+    font-size: 1em;
+    box-sizing: content-box;
+    width: 200px;
+    color: gray;
+    &:focus {
+      color: black;
     }
+  }
+  img {
+    width: 100px;
+    margin: auto;
+    padding: 10px;
+  }
+  h3 {
+    text-align: center;
+    padding: 10px;
+    width: 200px;
+    margin: auto;
+  }
 }
 
-.four-btns
-{
+.button-section {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  justify-content: space-around;
+  margin: auto;
+  border-radius: 15px;
+  p {
+    width: 200px;
+    text-align: center;
+    overflow-y: scroll;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  // p
+  // {
+  //     width: 200px;
+  //     text-align: center;
+  // }
+
+  button {
+    width: 50px;
+  }
+}
+
+.four-btns {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  gap: 30px;
+  justify-content: space-around;
+  button {
+    width: 150px;
+    font-size: 1em;
+    padding: 5px;
+    &:hover {
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  > li {
     display: flex;
-    flex-wrap: wrap;
-    width: 400px;
-    gap: 30px;
-    justify-content: space-around;
-    button
-    {
-        width: 150px;
-        font-size: 1em;
-        padding: 5px;
-        &:hover
-        {
-            cursor: pointer;
-            border-radius: 5px;
-        }
-    }
+    flex-wrap: nowrap;
+  }
 }
 
-@media screen and (max-width: 500px)
-{
-    .button-section
-    {
-        width: 200px;
-        flex-wrap: wrap;
-        p
-        {
-            // width: 200px;
-            text-align: center;
-            overflow: auto;
-            order: -1;
-            white-space: wrap;
-        }
-    }
+input[type="radio"] {
+  display: block;
+  &:checked {
+    accent-color: #1ed760;
+  }
+  &:hover {
+    background-color: gray;
+    cursor: pointer;
+  }
+}
 
-    .four-btns
-    {
-        width: 200px;
+.word-status {
+  position: aboslute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  padding: 10px;
+  border: 2px solid gray;
+  border-radius: 15px;
+  //   min-width: 150px;
+  text-align: center;
+  label {
+    all: revert;
+    display: flex;
+    width: 150px;
+    margin: auto;
+    &:hover {
+      cursor: pointer;
     }
+    // border: 1px solid black;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .button-section {
+    width: 200px;
+    flex-wrap: wrap;
+    p {
+      // width: 200px;
+      text-align: center;
+      overflow: auto;
+      order: -1;
+      white-space: wrap;
+    }
+  }
+
+  .four-btns {
+    width: 200px;
+  }
 }

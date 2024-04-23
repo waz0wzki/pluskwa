@@ -30,8 +30,8 @@
 
       <section class="inputs">
         <select name="select-difficulty" id="">
-          @for (item of DIFFICULTY_OPTIONS; track $index) {
-          <option value="{{ item.value }}" selected="{{ item.selected }}">
+          @for (item of difficultySelect; track $index) {
+          <option [value]="item.value" [selected]="item.selected">
             {{ item.value }}
           </option>
           }
@@ -41,25 +41,29 @@
         >
 
         <select name="select-status-change" id="">
-          @for (item of STATUS_CHANGE_OPTIONS; track $index) {
-          <option value="{{ item.value }}" selected="{{ item.selected }}">
+          @for (item of statusSelect; track $index) {
+          <option [value]="item.value" [selected]="item.selected">
             {{ item.value }}
           </option>
           }
         </select>
         <label class="bgimage" for="select-status-change">Status Change</label>
-        <select name="" id="">
-          <option value="" selected disabled hidden>Base language</option>
-          @for (item of LANGUAGES; track $index) {
-          <option value="{{ item.language }}">{{ item.language }}</option>
+        <select name="base-language" id="">
+          @for (item of languageSelect; track $index) {
+          <option [value]="item.language" [selected]="item.baseLanguage">
+            {{ item.language }}
+          </option>
           }
         </select>
-        <select name="" id="">
-          <option value="" selected disabled hidden>Other language</option>
-          @for (item of LANGUAGES; track $index) {
-          <option value="{{ item.language }}">{{ item.language }}</option>
+        <label for="base-language" class="bgimage">Base Language</label>
+        <select name="other-language" id="">
+          @for (item of languageSelect; track $index) {
+          <option [value]="item.language" [selected]="item.otherLanguage">
+            {{ item.language }}
+          </option>
           }
         </select>
+        <label for="other-language" class="bgimage">Other Language</label>
       </section>
 
       <section class="buttons">

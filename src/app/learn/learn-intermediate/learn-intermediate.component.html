@@ -20,6 +20,7 @@
     <button
       [ngClass]="item.selected ? 'chosen-four-btn' : ''"
       (click)="selectButton($index)"
+      title="{{ item.word.word }}"
     >
       {{ item.word.word }}
     </button>

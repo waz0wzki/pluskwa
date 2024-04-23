@@ -5,6 +5,7 @@ import { LoggedUserService } from '../../services/loggedUser.service';
 import { TimeService } from '../../services/time.service';
 import { Router } from '@angular/router';
 import { RandomService } from '../../services/random.service';
+import { LANGUAGES } from '../../models/languages';
 
 @Component({
   selector: 'app-learn-advanced',
@@ -24,6 +25,9 @@ export class LearnAdvancedComponent {
   userLanguages: any;
   userTranslations: any;
 
+  languages = LANGUAGES;
+  specialCharacters: string[] = [];
+
   constructor(
     private loggedUserService: LoggedUserService,
     private timeService: TimeService,
@@ -42,6 +46,16 @@ export class LearnAdvancedComponent {
       this.userLanguages = Object.keys(this.words[this.wordIdx].translation);
 
       this.nextTranslations();
+      console.log('lnags', this.languages);
+      let chars = this.languages.find(
+        (element) => element.language == this.otherLanguage
+      );
+
+      if (chars) {
+        this.specialCharacters = chars.symbols;
+      }
+
+      console.log('chars', this.specialCharacters);
     }
   }
 
@@ -103,15 +117,9 @@ export class LearnAdvancedComponent {
           this.loggedUser.baseLanguage
         ];
     }
-    //   switch (this.baseLanguage) {
-    //     case 'english':
-    //       this.userTranslations =
-    //         this.chosenWords[this.wordIdx].translation.english;
-    //       break;
-    //     case 'polish':
-    //       this.userTranslations =
-    //         this.chosenWords[this.wordIdx].translation.polish;
-    //       break;
-    //   }
+  }
+
+  insertChar(char: string) {
+    this.advancedConfirm += char;
   }
 }
