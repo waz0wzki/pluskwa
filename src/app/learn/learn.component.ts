@@ -5,6 +5,7 @@ import { LoggedUserService } from '../services/loggedUser.service';
 import { Router } from '@angular/router';
 import { LoginRedirect } from '../services/loginRedirect.service';
 import { RandomService } from '../services/random.service';
+import { WordSetService } from '../services/word-set.service';
 
 @Component({
   selector: 'app-learn',
@@ -21,7 +22,8 @@ export class LearnComponent {
     private loggedUserService: LoggedUserService,
     private router: Router,
     private loginRedirect: LoginRedirect,
-    private randomService: RandomService
+    private randomService: RandomService,
+    private wordSetService: WordSetService
   ) {}
 
   ngOnInit() {
@@ -36,11 +38,15 @@ export class LearnComponent {
     }
     this.loginRedirect.redirect(this.loggedUser, this.router);
     this.words?.forEach((element) => {
-      if (element.language == this.loggedUser?.otherLanguage) {
+      if (!this.loggedUser) {
+        return;
+      }
+      if (element.language == this.loggedUser.otherLanguage) {
         this.chosenWords.push(element);
       }
     });
     console.log('ive chosen', this.chosenWords);
+    this.wordSetService.changeWordSetSource(this.chosenWords);
     this.chooseRandomWords(this.chosenWords);
     // console.log('allwords', this.words);
     // console.log('aszka baszka ma malego ptaszka', this.chosenWords);
@@ -52,7 +58,7 @@ export class LearnComponent {
     }
     this.chosenWords = this.randomService.uniqueRandomArray(
       4,
-      this.words,
+      this.chosenWords,
       null
     );
   }

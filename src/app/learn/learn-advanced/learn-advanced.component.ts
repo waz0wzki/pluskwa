@@ -6,6 +6,7 @@ import { TimeService } from '../../services/time.service';
 import { Router } from '@angular/router';
 import { RandomService } from '../../services/random.service';
 import { LANGUAGES } from '../../models/languages';
+import { WordSetService } from '../../services/word-set.service';
 
 @Component({
   selector: 'app-learn-advanced',
@@ -13,7 +14,7 @@ import { LANGUAGES } from '../../models/languages';
   styleUrl: './learn-advanced.component.scss',
 })
 export class LearnAdvancedComponent {
-  words? = {} as WordInterface[];
+  words: any = [];
   loggedUser? = {} as UserInterface;
   wordIdx = 0;
   errorIdx = 0;
@@ -32,17 +33,21 @@ export class LearnAdvancedComponent {
     private loggedUserService: LoggedUserService,
     private timeService: TimeService,
     private router: Router,
-    private randomService: RandomService
+    private randomService: RandomService,
+    private wordSetService: WordSetService
   ) {}
   ngOnInit() {
     this.loggedUserService.currentUser.subscribe(
       (user) => (this.loggedUser = user)
     );
     if (this.loggedUser) {
-      this.words = this.loggedUser.word;
+      // this.words = this.loggedUser.word;
       this.baseLanguage = this.loggedUser.baseLanguage;
       this.otherLanguage = this.loggedUser.otherLanguage;
       console.log('base', this.baseLanguage, 'other', this.otherLanguage);
+      this.wordSetService.currentWordSet.subscribe(
+        (words) => (this.words = words)
+      );
       this.userLanguages = Object.keys(this.words[this.wordIdx].translation);
 
       this.nextTranslations();

@@ -5,6 +5,7 @@ import { RandomService } from '../../services/random.service';
 import { LoggedUserService } from '../../services/loggedUser.service';
 import { TimeService } from '../../services/time.service';
 import { LANGUAGES } from '../../models/languages';
+import { WordSetService } from '../../services/word-set.service';
 
 @Component({
   selector: 'app-learn-intermediate',
@@ -15,11 +16,12 @@ export class LearnIntermediateComponent {
   constructor(
     private randomService: RandomService,
     private loggedUserService: LoggedUserService,
-    private timeService: TimeService
+    private timeService: TimeService,
+    private wordSetService: WordSetService
   ) {}
 
   chosenAnswers: any = [];
-  words? = {} as WordInterface[];
+  words: any = [];
   loggedUser? = {} as UserInterface;
   wordIdx = 0;
   @Input() chosenWords: any;
@@ -41,10 +43,13 @@ export class LearnIntermediateComponent {
       (user) => (this.loggedUser = user)
     );
     if (this.loggedUser) {
-      this.words = this.loggedUser.word;
+      // this.words = this.loggedUser.word;
       this.baseLanguage = this.loggedUser.baseLanguage;
       this.otherLanguage = this.loggedUser.otherLanguage;
       console.log('base', this.baseLanguage, 'other', this.otherLanguage);
+      this.wordSetService.currentWordSet.subscribe(
+        (words) => (this.words = words)
+      );
       this.userLanguages = Object.keys(this.words[this.wordIdx].translation);
       // this.wordIdx = this.randomService.randomInt(0, this.words.length - 1);
       this.chooseAnswers();

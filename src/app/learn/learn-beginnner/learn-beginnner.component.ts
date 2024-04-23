@@ -4,6 +4,7 @@ import { UserInterface } from '../../interfaces/user.interface';
 import { LoggedUserService } from '../../services/loggedUser.service';
 import { RandomService } from '../../services/random.service';
 import { STATUS_OPTIONS } from '../../models/status-options';
+import { WordSetService } from '../../services/word-set.service';
 
 @Component({
   selector: 'app-learn-beginnner',
@@ -12,7 +13,7 @@ import { STATUS_OPTIONS } from '../../models/status-options';
 })
 export class LearnBeginnnerComponent {
   // words? = {} as WordInterface[];
-  @Input() words: any;
+  words: any = [];
   loggedUser? = {} as UserInterface;
   wordIdx = 0;
   transIdx = 0;
@@ -27,7 +28,8 @@ export class LearnBeginnnerComponent {
 
   constructor(
     private loggedUserService: LoggedUserService,
-    private randomService: RandomService
+    private randomService: RandomService,
+    private wordSetService: WordSetService
   ) {}
 
   ngOnInit() {
@@ -40,6 +42,10 @@ export class LearnBeginnnerComponent {
       this.baseLanguage = this.loggedUser.baseLanguage;
       this.otherLanguage = this.loggedUser.otherLanguage;
       console.log('base', this.baseLanguage, 'other', this.otherLanguage);
+      this.wordSetService.currentWordSet.subscribe(
+        (words) => (this.words = words)
+      );
+      console.log(this.words);
       this.userLanguages = Object.keys(this.words[this.wordIdx].translation);
 
       // for (let i = 0; i < this.userLanguages.length; i++) {

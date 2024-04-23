@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { WordInterface } from '../interfaces/word.interface';
 import { UserInterface } from '../interfaces/user.interface';
 import { EditedWordService } from '../services/editedWord.service';
@@ -9,6 +9,7 @@ import { DIFFICULTY_OPTIONS } from '../models/difficulty-options';
 import { STATUS_OPTIONS } from '../models/status-options';
 import { LANGUAGES } from '../models/languages';
 import { languageInterface } from '../interfaces/language.interface';
+import { WordSetService } from '../services/word-set.service';
 
 @Component({
   selector: 'app-search',
@@ -21,7 +22,7 @@ export class SearchComponent {
   difficultyLevels = DIFFICULTY_OPTIONS;
   statuses = STATUS_OPTIONS;
   languages = LANGUAGES;
-  words? = {} as WordInterface[];
+  words: any = [];
   loggedUser? = {} as UserInterface;
   editedWord = {} as WordInterface;
 
@@ -33,7 +34,8 @@ export class SearchComponent {
     private editedWordService: EditedWordService,
     private loggedUserService: LoggedUserService,
     private loginRedirect: LoginRedirect,
-    private router: Router
+    private router: Router,
+    private wordSetService: WordSetService
   ) {}
 
   ngOnInit() {
@@ -42,7 +44,8 @@ export class SearchComponent {
     );
     this.loginRedirect.redirect(this.loggedUser, this.router);
     if (this.loggedUser) {
-      this.words = this.loggedUser.word;
+      // this.words = this.loggedUser.word;
+      this.words = this.wordSetService;
       this.categories = this.loggedUser.category;
       if (this.words) {
         this.searchedWords = [];

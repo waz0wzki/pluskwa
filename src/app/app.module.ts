@@ -22,9 +22,7 @@ import { LearnAdvancedComponent } from './learn/learn-advanced/learn-advanced.co
 import { TimeService } from './services/time.service';
 import { LoginRedirect } from './services/loginRedirect.service';
 import { FilterPipe } from './filter.pipe';
-
-
-
+import { WordSetService } from './services/word-set.service';
 
 @NgModule({
   declarations: [
@@ -40,13 +38,17 @@ import { FilterPipe } from './filter.pipe';
     LearnAdvancedComponent,
     FilterPipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [
+    UserService,
+    WordService,
+    RandomService,
+    LoggedUserService,
+    EditedWordService,
+    TimeService,
+    LoginRedirect,
+    WordSetService,
   ],
-  providers: [UserService, WordService, RandomService, LoggedUserService, EditedWordService, TimeService, LoginRedirect],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
