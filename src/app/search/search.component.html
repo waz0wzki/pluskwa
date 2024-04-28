@@ -6,9 +6,11 @@
         name="search-field"
         placeholder="search"
         [(ngModel)]="searchWord"
+        (input)="search()"
       />
 
       <section class="buttons">
+        <!-- <button class="springgreen" (click)="search(searchWord)">SEARCH</button> -->
         <button class="springgreen">SEARCH</button>
         <button
           class="deepskyblue"
@@ -26,11 +28,24 @@
       <section class="filter bgimage">
         <h4>Category</h4>
 
+        <label
+          ><input
+            type="checkbox"
+            name=""
+            id=""
+            checked
+            (change)="selectAllFilters('category')"
+          />all</label
+        >
         @for (item of categories; track $index) {
         <label>
-          <input type="checkbox" class="checkbox" name="category-checkbox" />{{
-            item
-          }}
+          <input
+            type="checkbox"
+            class="checkbox"
+            name="category-checkbox"
+            [checked]="item.checked"
+            (change)="changeFilters('category', $index)"
+          />{{ item.category }}
         </label>
         }
       </section>
@@ -40,9 +55,13 @@
 
         @for (item of statuses; track $index) {
         <label>
-          <input type="checkbox" class="checkbox" name="status-checkbox" />{{
-            item.value
-          }}
+          <input
+            type="checkbox"
+            class="checkbox"
+            name="status-checkbox"
+            [checked]="item.checked"
+            (change)="changeFilters('status', $index)"
+          />{{ item.value }}
         </label>
         }
       </section>
@@ -56,19 +75,9 @@
             type="checkbox"
             class="checkbox"
             name="difficulty-checkbox"
+            [checked]="item.checked"
+            (change)="changeFilters('difficulty', $index)"
           />{{ item.value }}
-        </label>
-        }
-      </section>
-
-      <section class="filter bgimage">
-        <h4>Language</h4>
-
-        @for (item of languages; track $index) {
-        <label>
-          <input type="checkbox" class="checkbox" name="language-checkbox" />{{
-            item.language
-          }}
         </label>
         }
       </section>
@@ -84,8 +93,13 @@
         class="result bgimage hover-grow"
         routerLink="../edit-word"
         (click)="editWord($index)"
+        [ngClass]="{
+          advanced: item.difficulty == 'advanced',
+          beginner: item.difficulty == 'beginner',
+          intermediate: item.difficulty == 'intermediate'
+        }"
       >
-        <img src="assets/{{ item.imgUrl }}" alt="majteczki" />
+        <img src="assets/{{ item.imgUrl }}" alt="piwo" />
         <span>{{ item.word }}</span>
       </section>
       }

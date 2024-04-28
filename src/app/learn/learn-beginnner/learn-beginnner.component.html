@@ -3,7 +3,17 @@
   words && chosenWords) {
 
   <section class="word-section">
-    <h3 class="bgimage">{{ chosenWords[wordIdx].word }}</h3>
+    <header>
+      <img
+        src="assets/icons8-sound-96.png"
+        alt=""
+        class="hover-grow"
+        (click)="readWord()"
+      />
+      <h3>
+        {{ chosenWords[wordIdx].word }}
+      </h3>
+    </header>
 
     <img
       src="assets/{{ chosenWords[wordIdx].imgUrl }}"

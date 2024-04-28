@@ -1,7 +1,7 @@
 import { languageInterface } from './language.interface';
 
 export interface WordInterface {
-  idw: number;
+  id: number;
   word: string;
   language: string;
   wordProgress: number;

@@ -12,4 +12,14 @@ export class WordSetService {
   changeWordSetSource(words: WordInterface[]) {
     this.wordSetSource.next(words);
   }
+
+  getWordSet(language: string, words: any[]) {
+    let array: any = [];
+    words.forEach((element) => {
+      if (element.language == language) {
+        array.push(element);
+      }
+    });
+    return array;
+  }
 }

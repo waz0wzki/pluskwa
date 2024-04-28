@@ -3,6 +3,11 @@ main {
   position: relative;
 }
 
+h3 {
+  all: revert;
+  margin: 0 !important;
+}
+
 .word-section {
   padding: 30px;
   display: flex;
@@ -28,16 +33,10 @@ main {
       color: black;
     }
   }
-  img {
+  > img {
     width: 100px;
     margin: auto;
     padding: 10px;
-  }
-  h3 {
-    text-align: center;
-    padding: 10px;
-    width: 200px;
-    margin: auto;
   }
 }
 

@@ -5,6 +5,7 @@ import { LoggedUserService } from '../../services/loggedUser.service';
 import { RandomService } from '../../services/random.service';
 import { STATUS_OPTIONS } from '../../models/status-options';
 import { WordSetService } from '../../services/word-set.service';
+import { LANGUAGES } from '../../models/languages';
 
 @Component({
   selector: 'app-learn-beginnner',
@@ -25,6 +26,9 @@ export class LearnBeginnnerComponent {
   userTranslations: any;
   statusOptions = STATUS_OPTIONS;
   statusChange = false;
+  voicess = window.speechSynthesis.getVoices();
+  foundVoice: string = '';
+  languages = LANGUAGES;
 
   constructor(
     private loggedUserService: LoggedUserService,
@@ -54,6 +58,16 @@ export class LearnBeginnnerComponent {
       //   }
       // }
       this.nextTranslations();
+
+      this.voicess = window.speechSynthesis.getVoices();
+      let foundVoice = this.languages.find(
+        (element) => element.language == this.otherLanguage
+      );
+
+      console.log('i found', foundVoice);
+      if (foundVoice) {
+        this.foundVoice = foundVoice.reader;
+      }
     }
     console.log('beginner', this.chosenWords);
   }
@@ -153,6 +167,24 @@ export class LearnBeginnnerComponent {
     //         this.chosenWords[this.wordIdx].translation.polish;
     //       break;
     //   }
+  }
+
+  readWord() {
+    var message = new SpeechSynthesisUtterance();
+    var voices = window.speechSynthesis.getVoices();
+    console.log(voices);
+    let wonsisko = this.foundVoice;
+    // Find the voice you want to use
+    var voice = voices.find(function (voice) {
+      return voice.name === wonsisko;
+    });
+    if (!voice) {
+      return;
+    }
+
+    message.voice = voice;
+    message.text = this.chosenWords[this.wordIdx].word;
+    window.speechSynthesis.speak(message);
   }
 
   // true = true;

@@ -58,14 +58,18 @@ export class LoginComponent {
       this.loggedUser = this.users[this.loggedInIndex];
       this.loggedUserService.changeLoggedUser(this.loggedUser);
       this.words = this.loggedUser.word;
-      this.words?.forEach((element: any) => {
-        if (!this.loggedUser) {
-          return;
-        }
-        if (element.language == this.loggedUser.otherLanguage) {
-          this.chosenWords.push(element);
-        }
-      });
+      // this.words?.forEach((element: any) => {
+      //   if (!this.loggedUser) {
+      //     return;
+      //   }
+      //   if (element.language == this.loggedUser.otherLanguage) {
+      //     this.chosenWords.push(element);
+      //   }
+      // });
+      this.chosenWords = this.wordSetService.getWordSet(
+        this.loggedUser.otherLanguage,
+        this.loggedUser.word
+      );
       console.log('ive chosen', this.chosenWords);
       this.wordSetService.changeWordSetSource(this.chosenWords);
 
