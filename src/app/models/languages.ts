@@ -29,6 +29,7 @@ export const LANGUAGES = [
       'ï',
       'î',
       'ô',
+      'ó',
       'œ',
       'ù',
       'û',

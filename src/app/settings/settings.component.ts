@@ -7,6 +7,9 @@ import { LoginRedirect } from '../services/loginRedirect.service';
 import { DIFFICULTY_OPTIONS } from '../models/difficulty-options';
 import { STATUS_CHANGE_OPTIONS } from '../models/status-change-options';
 import { LANGUAGES } from '../models/languages';
+import { WordSetService } from '../services/word-set.service';
+import { WordService } from '../services/word.service';
+import { WordInterface } from '../interfaces/word.interface';
 
 @Component({
   selector: 'app-settings',
@@ -25,12 +28,20 @@ export class SettingsComponent {
   users: UserInterface[] = [];
 
   newMail: string = '';
+  oldPassword: string = '';
+  newPassword: string = '';
+  newLearningDifficulty = '';
+  newStatusChange = '';
+  newBaseLanguage = '';
+  newOtherLanguage = '';
 
   constructor(
     private userService: UserService,
     private loggedUserService: LoggedUserService,
     private router: Router,
-    private loginRedirect: LoginRedirect
+    private loginRedirect: LoginRedirect,
+    private wordSetService: WordSetService,
+    private wordService: WordService
   ) {}
 
   loggedUser = {} as UserInterface;
@@ -41,17 +52,23 @@ export class SettingsComponent {
     );
     this.loginRedirect.redirect(this.loggedUser, this.router);
 
+    this.wordService.getBasicWords().subscribe((words: any) => {
+      console.log('niedzwiedz', words);
+    });
+
     this.userService.getUsers().subscribe((wres: UserInterface[]) => {
       this.users = wres;
-      this.newMail = this.loggedUser.email;
+      // this.newMail = this.loggedUser.email;
       LANGUAGES.forEach((element) => {
         let bL = false;
         let oL = false;
         if (this.loggedUser.baseLanguage == element.language) {
           bL = true;
+          this.newBaseLanguage = element.language;
         }
         if (this.loggedUser.otherLanguage == element.language) {
           oL = true;
+          this.newOtherLanguage = element.language;
         }
         let languageSelectOption = {
           language: element.language,
@@ -67,6 +84,7 @@ export class SettingsComponent {
         let d = false;
         if (this.loggedUser.learningdifficulty == element.value) {
           d = true;
+          this.newLearningDifficulty = element.value;
         }
         let difficultySelectOption = {
           value: element.value,
@@ -80,6 +98,7 @@ export class SettingsComponent {
         let sC = false;
         if (this.loggedUser.statuschange == element.value) {
           sC = true;
+          this.newStatusChange = element.value;
         }
 
         let selectChangeSelectOption = {
@@ -96,5 +115,58 @@ export class SettingsComponent {
     this.loggedUser = {} as UserInterface;
     this.loggedUserService.changeLoggedUser(this.loggedUser);
     this.router.navigate(['login']);
+  }
+
+  changeLoginData() {
+    if (!this.loggedUser) {
+      return;
+    }
+
+    if (this.newMail != '') {
+      this.loggedUser.email = this.newMail;
+    }
+
+    if (this.oldPassword != '' && this.newPassword != '') {
+      if (this.oldPassword != this.loggedUser.password) {
+        alert('Incorrect old password');
+      } else {
+        this.loggedUser.password = this.newPassword;
+      }
+    }
+    this.userService.updateUser(this.loggedUser);
+  }
+
+  changeCourseSettings() {
+    if (!this.loggedUser) {
+      return;
+    }
+
+    this.loggedUser.learningdifficulty = this.newLearningDifficulty;
+    this.loggedUser.statuschange = this.newStatusChange;
+    this.loggedUser.baseLanguage = this.newBaseLanguage;
+    this.loggedUser.otherLanguage = this.newOtherLanguage;
+    this.userService.updateUser(this.loggedUser);
+    this.wordSetService.changeWordSetSource(
+      this.wordSetService.getWordSet(
+        this.loggedUser.otherLanguage,
+        this.loggedUser.word
+      )
+    );
+  }
+
+  resetProgress() {
+    let basicWord = [] as any;
+    this.wordService.getBasicWords().subscribe((words: any) => {
+      basicWord = words;
+      console.log('basic boobs', basicWord);
+      this.loggedUser.word = basicWord;
+      this.userService.updateUser(this.loggedUser);
+      this.wordSetService.changeWordSetSource(
+        this.wordSetService.getWordSet(
+          this.loggedUser.otherLanguage,
+          this.loggedUser.word
+        )
+      );
+    });
   }
 }

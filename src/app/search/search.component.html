@@ -11,7 +11,7 @@
 
       <section class="buttons">
         <!-- <button class="springgreen" (click)="search(searchWord)">SEARCH</button> -->
-        <button class="springgreen">SEARCH</button>
+        <!-- <button class="springgreen">SEARCH</button> -->
         <button
           class="deepskyblue"
           routerLink="../edit-word"
@@ -33,9 +33,9 @@
             type="checkbox"
             name=""
             id=""
-            checked
+            [checked]="allFilters.category"
             (change)="selectAllFilters('category')"
-          />all</label
+          /><b>all</b></label
         >
         @for (item of categories; track $index) {
         <label>
@@ -53,6 +53,16 @@
       <section class="filter bgimage">
         <h4>Status</h4>
 
+        <label
+          ><input
+            type="checkbox"
+            name=""
+            id=""
+            [checked]="allFilters.status"
+            (change)="selectAllFilters('status')"
+          /><b>all</b></label
+        >
+
         @for (item of statuses; track $index) {
         <label>
           <input
@@ -68,6 +78,15 @@
 
       <section class="filter bgimage">
         <h4>Difficulty</h4>
+        <label
+          ><input
+            type="checkbox"
+            name=""
+            id=""
+            [checked]="allFilters.difficulty"
+            (change)="selectAllFilters('difficulty')"
+          /><b>all</b></label
+        >
 
         @for (item of difficultyLevels; track $index) {
         <label>

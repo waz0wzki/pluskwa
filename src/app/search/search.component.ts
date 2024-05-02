@@ -11,6 +11,7 @@ import { LANGUAGES } from '../models/languages';
 import { languageInterface } from '../interfaces/language.interface';
 import { WordSetService } from '../services/word-set.service';
 import { RandomService } from '../services/random.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-search',
@@ -26,6 +27,11 @@ export class SearchComponent {
   words: any = [];
   loggedUser? = {} as UserInterface;
   editedWord = {} as WordInterface;
+  allFilters = {
+    category: false,
+    difficulty: false,
+    status: false,
+  };
 
   searchWord: any;
 
@@ -38,7 +44,8 @@ export class SearchComponent {
     private loginRedirect: LoginRedirect,
     private router: Router,
     private wordSetService: WordSetService,
-    private randomService: RandomService
+    private randomService: RandomService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
@@ -59,21 +66,21 @@ export class SearchComponent {
     this.loggedUser.category.forEach((element) => {
       this.categories.push({
         category: element,
-        checked: true,
+        checked: false,
       });
     });
 
     DIFFICULTY_OPTIONS.forEach((element) => {
       this.difficultyLevels.push({
         value: element.value,
-        checked: true,
+        checked: false,
       });
     });
 
     STATUS_OPTIONS.forEach((element) => {
       this.statuses.push({
         value: element.value,
-        checked: true,
+        checked: false,
       });
     });
 
@@ -101,23 +108,47 @@ export class SearchComponent {
     if (!this.loggedUser) {
       return;
     }
-    let newTranslations = [] as languageInterface;
+    let newTranslations = {
+      english: [],
+      spanish: [],
+      polish: [],
+    } as languageInterface;
 
     this.editedWord = {
-      id: 0,
-      word: 'new word',
-      language: this.loggedUser?.otherLanguage,
+      id: '20',
+      word: 'boromir',
+      language: 'french',
       wordProgress: 0,
-      status: "i don't know",
-      difficulty: 'easy',
-      imgUrl: 'icons8-image-64.png',
-      imgAlt: '',
-      translation: newTranslations,
+      status: 'i learn',
+      difficulty: 'beginner',
+      imgUrl: 'icons8-plane-96.png',
+      imgAlt: 'new word',
+      translation: {
+        english: ['new word'],
+        polish: ['new word'],
+      },
       example: [],
-      category: [],
+      category: ['nouns'],
     };
+    let maxId = 0;
+    this.loggedUser.word.forEach((element: any) => {
+      if (parseInt(element.id) > maxId) {
+        maxId = element.id;
+      }
+    });
+    maxId++;
+
+    this.editedWord.id = maxId.toString();
 
     this.editedWordService.changeEditedWord(this.editedWord);
+    this.loggedUser.word.push(this.editedWord);
+    this.userService.updateUser(this.loggedUser);
+    this.wordSetService.changeWordSetSource(
+      this.wordSetService.getWordSet(
+        this.loggedUser.otherLanguage,
+        this.loggedUser.word
+      )
+    );
   }
 
   search() {
@@ -155,33 +186,59 @@ export class SearchComponent {
     switch (filter) {
       case 'category':
         this.categories[index].checked = !this.categories[index].checked;
+        console.log('cats changed', this.categories);
+        if (!this.categories[index].checked) {
+          this.allFilters.category = false;
+        }
+        if (this.isAllFilterChosen(this.categories)) {
+          this.allFilters.category = true;
+        }
         break;
       case 'status':
         this.statuses[index].checked = !this.statuses[index].checked;
+        console.log('stat changed', this.statuses);
+        if (!this.statuses[index].checked) {
+          this.allFilters.status = false;
+        }
+        if (this.isAllFilterChosen(this.statuses)) {
+          this.allFilters.status = true;
+        }
         break;
       case 'difficulty':
         this.difficultyLevels[index].checked =
           !this.difficultyLevels[index].checked;
+        if (!this.difficultyLevels[index].checked) {
+          this.allFilters.difficulty = false;
+        }
+        if (this.isAllFilterChosen(this.difficultyLevels)) {
+          this.allFilters.difficulty = true;
+        }
+        console.log('diff changed', this.difficultyLevels);
         break;
     }
+
     this.applyFilter();
   }
 
   selectAllFilters(filter: string) {
+    console.log('expecto patronum', this.allFilters);
     switch (filter) {
       case 'category':
+        this.allFilters.category = !this.allFilters.category;
         this.categories.forEach((element: any) => {
-          element.checked = !element.checked;
+          element.checked = this.allFilters.category;
         });
         break;
       case 'status':
+        this.allFilters.status = !this.allFilters.status;
         this.statuses.forEach((element: any) => {
-          element.checked = !element.checked;
+          element.checked = this.allFilters.status;
         });
         break;
       case 'difficulty':
+        this.allFilters.difficulty = !this.allFilters.difficulty;
         this.difficultyLevels.forEach((element: any) => {
-          element.checked = !element.checked;
+          element.checked = this.allFilters.difficulty;
         });
         break;
     }
@@ -191,26 +248,32 @@ export class SearchComponent {
   applyFilter() {
     this.filteredWords = [];
     let filtered: any = [];
+    let empty = this.isNoFilterChosen(this.difficultyLevels);
+    console.log('empty diff', empty);
     this.words.forEach((element: any) => {
       this.difficultyLevels.forEach((diff: any) => {
-        if (diff.value == element.difficulty && diff.checked) {
+        if ((diff.value == element.difficulty && diff.checked) || empty) {
           filtered.push(element);
         }
       });
     });
+    empty = this.isNoFilterChosen(this.statuses);
+    console.log('empty stat', empty);
     filtered.forEach((element: any) => {
       this.statuses.forEach((stat: any) => {
-        if (stat.value == element.status && stat.checked) {
+        if ((stat.value == element.status && stat.checked) || empty) {
           this.filteredWords?.push(element);
         }
       });
     });
     filtered = [];
+    empty = this.isNoFilterChosen(this.categories);
+    console.log('empty cats', empty);
     console.log('cats', this.filteredWords);
     this.filteredWords.forEach((element: any) => {
       this.categories.forEach((cat: any) => {
         element.category.forEach((item: any) => {
-          if (item == cat.category && cat.checked) {
+          if ((item == cat.category && cat.checked) || empty) {
             filtered.push(element);
           }
         });
@@ -220,5 +283,23 @@ export class SearchComponent {
     this.filteredWords = filtered;
     console.log('gjkjkjk', this.filteredWords);
     this.search();
+  }
+
+  isNoFilterChosen(array: any) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].checked == true) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  isAllFilterChosen(array: any) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].checked == false) {
+        return false;
+      }
+    }
+    return true;
   }
 }

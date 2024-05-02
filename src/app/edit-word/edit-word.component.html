@@ -15,11 +15,21 @@
       <button (click)="editWord()">
         <img src="assets/icons8-edit-52.png" alt="" />
       </button>
-      <button>
-        <img src="assets/icons8-trash-52.png" alt="" (click)="deleteWord()" />
+      <button (click)="deleteWord()">
+        <img src="assets/icons8-trash-52.png" alt="" />
       </button>
     </section>
   </section>
+  @if(wordMessage!="") {
+  <label
+    class="bgimage"
+    [ngClass]="{
+    error: wordError == true,
+    notError: wordError == false,
+  }"
+    >{{ wordMessage }}</label
+  >
+  }
 
   <section class="edit-row">
     <label for="" class="bgimage">ADD TRANSLATION</label>
@@ -32,116 +42,189 @@
     </section>
   </section>
 
+  @if(translationMessage!="") {
+  <label
+    class="bgimage"
+    [ngClass]="{
+      error: translationError == true,
+      notError: translationError == false,
+    }"
+    >{{ translationMessage }}</label
+  >
+  }
+
   <section class="edit-row">
     <label for="" class="bgimage delete">DELETE TRANSLATION</label>
-    <select name="" id="">
+    <select name="" id="" [(ngModel)]="convictTranslation">
       <option value="" disabled selected hidden>Translation</option>
-      @for (item of editedWord.translation.english; track $index) {
-      <option value="item">{{ item }}</option>
+      @for (item of translationSelect; track $index) {
+      <option [value]="item.translation">
+        {{ item.translation }}
+      </option>
       }
     </select>
     <section class="buttons">
-      <button><img src="assets/icons8-trash-52.png" alt="" /></button>
+      <button (click)="deleteTranslation()">
+        <img src="assets/icons8-trash-52.png" alt="" />
+      </button>
     </section>
   </section>
 
   <section class="edit-row">
     <label for="" class="bgimage">ADD EXAMPLE</label>
-    <input type="text" name="" />
+    <input type="text" name="" [(ngModel)]="newExample" />
 
     <section class="buttons">
-      <button><img src="assets/icons8-add-64.png" alt="" /></button>
+      <button>
+        <img src="assets/icons8-add-64.png" alt="" (click)="addExample()" />
+      </button>
     </section>
   </section>
 
+  @if(exampleMessage!="") {
+  <label
+    class="bgimage"
+    [ngClass]="{
+      error: exampleError == true,
+      notError: exampleError == false,
+    }"
+    >{{ exampleMessage }}</label
+  >
+  }
+
   <section class="edit-row">
     <label for="" class="bgimage delete">DELETE EXAMPLE</label>
-    <select name="" id="">
+    <select name="" id="" [(ngModel)]="convictExample">
       <option value="" disabled selected hidden>Example</option>
-      @for (item of editedWord.example; track $index) {
-      <option value="item">{{ item.slice(0, 20) + "..." }}</option>
+      @for (item of exampleSelect; track $index) {
+      <option
+        [value]="item.example"
+        [selected]="item.selected"
+        title="{{ item.example }}"
+      >
+        {{ item.example.slice(0, 20) + "..." }}
+      </option>
       }
     </select>
     <section class="buttons">
-      <button><img src="assets/icons8-trash-52.png" alt="" /></button>
+      <button (click)="deleteExample()">
+        <img src="assets/icons8-trash-52.png" alt="" />
+      </button>
     </section>
   </section>
 
   <section class="edit-row">
     <label for="" class="bgimage">ADD CATEGORY</label>
-    <select name="" id="">
+    <select name="" id="" [(ngModel)]="newCategoryToWord">
       <option value="" selected disabled hidden>All categories</option>
       @for (item of loggedUser?.category; track $index) {
-      <option value="item">{{ item }}</option>
+      <option [value]="item">{{ item }}</option>
       }
     </select>
     <section class="buttons">
-      <button><img src="assets/icons8-add-64.png" alt="" /></button>
+      <button (click)="addCategoryToWord()">
+        <img src="assets/icons8-add-64.png" alt="" />
+      </button>
     </section>
   </section>
+
+  @if(categoryMessage!="") {
+  <label
+    class="bgimage"
+    [ngClass]="{
+      error: categoryError == true,
+      notError: categoryError == false,
+    }"
+    >{{ categoryMessage }}</label
+  >
+  }
   <section class="edit-row">
     <label for="" class="bgimage delete">DELETE CATEGORY</label>
-    <select name="" id="">
+    <select name="" id="" [(ngModel)]="convictWordCategory">
       <option value="" selected disabled hidden>Word categories</option>
       @for (item of editedWord.category; track $index) {
-      <option value="item">{{ item }}</option>
+      <option [value]="item">{{ item }}</option>
       }
     </select>
     <section class="buttons">
-      <button><img src="assets/icons8-trash-52.png" alt="" /></button>
+      <button (click)="deleteCategoryFromWord()">
+        <img src="assets/icons8-trash-52.png" alt="" />
+      </button>
     </section>
   </section>
 
   <section class="edit-row">
     <label for="" class="bgimage">EDIT STATUS</label>
-    <select name="status" id="">
+    <select name="status" id="" [(ngModel)]="newStatus">
       <option value="" selected disabled hidden>Status</option>
       @for (item of statusSelect; track $index) {
-      <option value="item" [selected]="item.selected">{{ item.value }}</option>
+      <option [value]="item.value" [selected]="item.selected">
+        {{ item.value }}
+      </option>
       }
     </select>
     <section class="buttons">
-      <button><img src="assets/icons8-edit-52.png" alt="" /></button>
+      <button (click)="changeStatus()">
+        <img src="assets/icons8-edit-52.png" alt="" />
+      </button>
     </section>
   </section>
+
+  @if(statusMessage!="") {
+  <label class="bgimage notError">{{ statusMessage }}</label>
+  }
 
   <section class="edit-row">
     <label for="" class="bgimage">EDIT DIFFICULTY</label>
-    <select name="difficulty" id="">
+    <select name="difficulty" id="" [(ngModel)]="newDifficulty">
       <option value="" selected disabled hidden>Difficulty</option>
       @for (item of difficultySelect; track $index) {
-      <option value="item" [selected]="item.selected">{{ item.value }}</option>
+      <option [value]="item.value" [selected]="item.selected">
+        {{ item.value }}
+      </option>
       }
     </select>
     <section class="buttons">
-      <button><img src="assets/icons8-edit-52.png" alt="" /></button>
+      <button (click)="changeDifficulty()">
+        <img src="assets/icons8-edit-52.png" alt="" />
+      </button>
     </section>
   </section>
 
-  <section class="final-buttons">
-    <button class="springgreen">ADD AS NEW WORD</button>
-  </section>
+  @if(difficultyMessage!="") {
+  <label class="bgimage notError">{{ difficultyMessage }}</label>
+  }
+
+  <!-- <section class="final-buttons">
+    <button class="springgreen" (click)="addAsNewWord()">
+      ADD AS NEW WORD
+    </button>
+  </section> -->
 
   <h3>CATEGORY</h3>
 
   <section class="edit-row">
     <label for="" class="bgimage">ADD NEW CATEGORY</label>
-    <input type="text" name="" />
+    <input type="text" name="" [(ngModel)]="newCategory" />
     <section class="buttons">
-      <button><img src="assets/icons8-add-64.png" alt="" /></button>
+      <button (click)="addNewCategory()">
+        <img src="assets/icons8-add-64.png" alt="" />
+      </button>
     </section>
   </section>
 
   <section class="edit-row">
-    <label for="" class="bgimage delete">DELETE CATEGORY</label>
-    <select name="" id="">
+    <label for="" class="bgimage delete">DELETE THE CATEGORY</label>
+    <select name="" id="" [(ngModel)]="convictCategory">
       <option value="" selected disabled hidden>All categories</option>
       @for (item of loggedUser?.category; track $index) {
-      <option value="item">{{ item }}</option>
+      <option [value]="item">{{ item }}</option>
       }
     </select>
     <section class="buttons">
-      <button><img src="assets/icons8-trash-52.png" alt="" /></button>
+      <button (click)="deleteCategory()">
+        <img src="assets/icons8-trash-52.png" alt="" />
+      </button>
     </section>
   </section>
 </main>

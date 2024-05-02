@@ -9,17 +9,17 @@
           type="text"
           name="email"
           [(ngModel)]="newMail"
-          placeholder="{{ newMail }}"
+          placeholder="{{ loggedUser.email }}"
         />
 
         <label class="bgimage" for="old-password">Old password</label>
-        <input type="password" name="old-password" />
+        <input type="password" name="old-password" [(ngModel)]="oldPassword" />
 
         <label class="bgimage" for="new-password">New password</label>
-        <input type="password" name="new-password" />
+        <input type="password" name="new-password" [(ngModel)]="newPassword" />
       </section>
       <section class="buttons">
-        <button class="deepskyblue">CHANGE</button>
+        <button class="deepskyblue" (click)="changeLoginData()">CHANGE</button>
         <button class="crimson">DELETE ACCOUNT</button>
 
         <button class="orange" (click)="logOut()">LOG OUT</button>
@@ -33,7 +33,11 @@
         <label class="bgimage" for="select-dificulty"
           >Learning difficulty</label
         >
-        <select name="select-difficulty" id="">
+        <select
+          name="select-difficulty"
+          id=""
+          [(ngModel)]="newLearningDifficulty"
+        >
           @for (item of difficultySelect; track $index) {
           <option [value]="item.value" [selected]="item.selected">
             {{ item.value }}
@@ -42,7 +46,7 @@
         </select>
 
         <label class="bgimage" for="select-status-change">Status Change</label>
-        <select name="select-status-change" id="">
+        <select name="select-status-change" id="" [(ngModel)]="newStatusChange">
           @for (item of statusSelect; track $index) {
           <option [value]="item.value" [selected]="item.selected">
             {{ item.value }}
@@ -51,7 +55,7 @@
         </select>
 
         <label for="base-language" class="bgimage">Base Language</label>
-        <select name="base-language" id="">
+        <select name="base-language" id="" [(ngModel)]="newBaseLanguage">
           @for (item of languageSelect; track $index) {
           <option [value]="item.language" [selected]="item.baseLanguage">
             {{ item.language }}
@@ -60,7 +64,7 @@
         </select>
 
         <label for="other-language" class="bgimage">Other Language</label>
-        <select name="other-language" id="">
+        <select name="other-language" id="" [(ngModel)]="newOtherLanguage">
           @for (item of languageSelect; track $index) {
           <option [value]="item.language" [selected]="item.otherLanguage">
             {{ item.language }}
@@ -70,8 +74,12 @@
       </section>
 
       <section class="buttons">
-        <button class="deepskyblue">CHANGE</button>
-        <button class="crimson">RESET PROGRESS</button>
+        <button class="deepskyblue" (click)="changeCourseSettings()">
+          CHANGE
+        </button>
+        <button class="crimson" (click)="resetProgress()">
+          RESET PROGRESS
+        </button>
       </section>
     </section>
   </section>

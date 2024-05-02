@@ -11,6 +11,22 @@ main {
   padding: 30px;
 }
 
+.error {
+  color: crimson;
+  font-weight: bold;
+  font-size: 1em;
+  width: 200px;
+  margin: auto;
+}
+
+.notError {
+  color: dodgerblue;
+  font-weight: bold;
+  font-size: 1em;
+  width: 200px;
+  margin: auto;
+}
+
 .delete {
   color: crimson;
 }
