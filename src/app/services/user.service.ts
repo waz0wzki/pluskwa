@@ -27,4 +27,18 @@ export class UserService {
   addUser(user: any) {
     this.http.post(this.url, user).subscribe();
   }
+
+  uploadPhoto(file: any) {
+    this.http
+      .post('http://localhost:8008/api/upload', file)
+      .subscribe((res: any) => {
+        console.log(res);
+      });
+  }
+
+  deletePhoto(file: any) {
+    this.http.delete('http://localhost:8008/', file).subscribe((res: any) => {
+      return res;
+    });
+  }
 }

@@ -12,6 +12,7 @@ import { UserService } from '../services/user.service';
 import { WordSetService } from '../services/word-set.service';
 import { max } from 'rxjs';
 import { TimeService } from '../services/time.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-word',
@@ -57,7 +58,8 @@ export class EditWordComponent {
     private loginRedirect: LoginRedirect,
     private userService: UserService,
     private wordSetService: WordSetService,
-    private timeService: TimeService
+    private timeService: TimeService,
+    private http: HttpClient
   ) {}
 
   ngOnInit() {
@@ -497,7 +499,32 @@ export class EditWordComponent {
 
   getFile(event: any) {
     this.file = event.target.files[0];
-    console.log('spocone jaja', this.file);
-    
+    console.log('ledossier', this.file);
+    let newName = this.loggedUser?.email + '_' + this.editedWord?.word;
+    let fileType = this.file.name.split('?')[0].split('.').pop();
+    let fullFileName = newName + '.' + fileType;
+    let formData = new FormData();
+    formData.append('file', this.file, fullFileName);
+
+    // this.userService.uploadPhoto(formData);
+    this.http
+      .post('http://localhost:8008/api/upload', formData)
+      .subscribe((res: any) => {
+        console.log(res);
+        if (!this.editedWord || !this.loggedUser) {
+          return;
+        }
+        this.editedWord.imgUrl = fullFileName;
+        this.editedWord.imgAlt = this.editedWord.word;
+        console.log('ścieżka do dupy', fullFileName);
+        this.userService.updateUser(this.loggedUser);
+        this.wordSetService.changeWordSetSource(
+          this.wordSetService.getWordSet(
+            this.loggedUser.otherLanguage,
+            this.loggedUser.word
+          )
+        );
+      });
+    // this.userService.deletePhoto(this.file);
   }
 }

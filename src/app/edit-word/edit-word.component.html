@@ -14,14 +14,14 @@
       <input type="file" name="file" id="file" (change)="getFile($event)" />
       <button>
         <label for="file" class="file"
-          ><img src="assets/{{ editedWord.imgUrl }}" alt=""
+          ><img src="http://localhost:8008/{{ editedWord.imgUrl }}" alt=""
         /></label>
       </button>
       <button (click)="editWord()">
-        <img src="assets/icons8-edit-52.png" alt="" />
+        <img src="http://localhost:8008/icons8-edit-52.png" alt="" />
       </button>
       <button (click)="deleteWord()">
-        <img src="assets/icons8-trash-52.png" alt="" />
+        <img src="http://localhost:8008/icons8-trash-52.png" alt="" />
       </button>
     </section>
   </section>
@@ -42,7 +42,11 @@
 
     <section class="buttons">
       <button>
-        <img src="assets/icons8-add-64.png" alt="" (click)="addTranslation()" />
+        <img
+          src="http://localhost:8008/icons8-add-64.png"
+          alt=""
+          (click)="addTranslation()"
+        />
       </button>
     </section>
   </section>
@@ -70,7 +74,7 @@
     </select>
     <section class="buttons">
       <button (click)="deleteTranslation()">
-        <img src="assets/icons8-trash-52.png" alt="" />
+        <img src="http://localhost:8008/icons8-trash-52.png" alt="" />
       </button>
     </section>
   </section>
@@ -81,7 +85,11 @@
 
     <section class="buttons">
       <button>
-        <img src="assets/icons8-add-64.png" alt="" (click)="addExample()" />
+        <img
+          src="http://localhost:8008/icons8-add-64.png"
+          alt=""
+          (click)="addExample()"
+        />
       </button>
     </section>
   </section>
@@ -113,7 +121,7 @@
     </select>
     <section class="buttons">
       <button (click)="deleteExample()">
-        <img src="assets/icons8-trash-52.png" alt="" />
+        <img src="http://localhost:8008/icons8-trash-52.png" alt="" />
       </button>
     </section>
   </section>
@@ -128,7 +136,7 @@
     </select>
     <section class="buttons">
       <button (click)="addCategoryToWord()">
-        <img src="assets/icons8-add-64.png" alt="" />
+        <img src="http://localhost:8008/icons8-add-64.png" alt="" />
       </button>
     </section>
   </section>
@@ -153,7 +161,7 @@
     </select>
     <section class="buttons">
       <button (click)="deleteCategoryFromWord()">
-        <img src="assets/icons8-trash-52.png" alt="" />
+        <img src="http://localhost:8008/icons8-trash-52.png" alt="" />
       </button>
     </section>
   </section>
@@ -170,7 +178,7 @@
     </select>
     <section class="buttons">
       <button (click)="changeStatus()">
-        <img src="assets/icons8-edit-52.png" alt="" />
+        <img src="http://localhost:8008/icons8-edit-52.png" alt="" />
       </button>
     </section>
   </section>
@@ -191,7 +199,7 @@
     </select>
     <section class="buttons">
       <button (click)="changeDifficulty()">
-        <img src="assets/icons8-edit-52.png" alt="" />
+        <img src="http://localhost:8008/icons8-edit-52.png" alt="" />
       </button>
     </section>
   </section>
@@ -213,7 +221,7 @@
     <input type="text" name="" [(ngModel)]="newCategory" />
     <section class="buttons">
       <button (click)="addNewCategory()">
-        <img src="assets/icons8-add-64.png" alt="" />
+        <img src="http://localhost:8008/icons8-add-64.png" alt="" />
       </button>
     </section>
   </section>
@@ -228,7 +236,7 @@
     </select>
     <section class="buttons">
       <button (click)="deleteCategory()">
-        <img src="assets/icons8-trash-52.png" alt="" />
+        <img src="http://localhost:8008/icons8-trash-52.png" alt="" />
       </button>
     </section>
   </section>

@@ -107,8 +107,10 @@ export class LoginComponent {
     maxId++;
     console.log(maxId);
 
-    this.wordService.getBasicCategory().subscribe((category: string[]) => {
-      this.category = category;
+    this.wordService.getBasicCategory().subscribe((category: any) => {
+      category.forEach((element: any) => {
+        this.category.push(element.category);
+      });
       console.log('elo elo 3 2 0', this.category);
       this.wordService.getBasicWords().subscribe((words: any) => {
         this.words = words;

@@ -5,7 +5,7 @@
   <section class="word-section">
     <header>
       <img
-        src="assets/icons8-sound-96.png"
+        src="http://localhost:8008/icons8-sound-96.png"
         alt=""
         class="hover-grow"
         (click)="readWord()"
@@ -16,7 +16,7 @@
     </header>
 
     <img
-      src="assets/{{ chosenWords[wordIdx].imgUrl }}"
+      src="http://localhost:8008/{{ chosenWords[wordIdx].imgUrl }}"
       alt="{{ chosenWords[wordIdx].imgAlt }}"
       class="bgimage learn-img"
       [ngClass]="{
