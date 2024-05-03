@@ -4,7 +4,7 @@
       "id": "0",
       "email": "b",
       "password": "b",
-      "baseLanguage": "polish",
+      "baseLanguage": "english",
       "otherLanguage": "french",
       "learningdifficulty": "beginner",
       "statuschange": "manual",
@@ -319,8 +319,8 @@
           "wordProgress": 0,
           "status": "i learn",
           "difficulty": "beginner",
-          "imgUrl": "b_la route.png",
-          "imgAlt": "la route",
+          "imgUrl": "icons8-plane-96.png",
+          "imgAlt": "road",
           "translation": {
             "english": [
               "road",
@@ -548,6 +548,30 @@
           "category": [
             "nouns",
             "vehicles"
+          ]
+        },
+        {
+          "id": "20",
+          "word": "złodziej",
+          "language": "french",
+          "wordProgress": 0,
+          "status": "i learn",
+          "difficulty": "beginner",
+          "imgUrl": "b_złodziej.png",
+          "imgAlt": "złodziej",
+          "translation": {
+            "english": [
+              "english translation"
+            ],
+            "polish": [
+              "polskie tłumaczenie"
+            ]
+          },
+          "example": [
+            "Example of a new word"
+          ],
+          "category": [
+            "nouns"
           ]
         }
       ]

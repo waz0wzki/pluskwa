@@ -116,18 +116,18 @@ export class SearchComponent {
 
     this.editedWord = {
       id: '20',
-      word: 'boromir',
-      language: 'french',
+      word: 'new word',
+      language: this.loggedUser.otherLanguage,
       wordProgress: 0,
       status: 'i learn',
       difficulty: 'beginner',
-      imgUrl: 'icons8-plane-96.png',
+      imgUrl: 'icons8-image-96.png',
       imgAlt: 'new word',
       translation: {
-        english: ['new word'],
-        polish: ['new word'],
+        english: ['english translation'],
+        polish: ['polskie tłumaczenie'],
       },
-      example: [],
+      example: ['Example of a new word'],
       category: ['nouns'],
     };
     let maxId = 0;

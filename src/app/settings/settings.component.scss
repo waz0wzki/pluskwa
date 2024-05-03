@@ -16,6 +16,22 @@ h3 {
   margin: 30px auto;
 }
 
+.error {
+  color: crimson;
+  font-weight: bold;
+  font-size: 1em;
+  width: 200px;
+  margin: auto;
+}
+
+.notError {
+  color: dodgerblue;
+  font-weight: bold;
+  font-size: 1em;
+  width: 200px;
+  margin: auto;
+}
+
 .inputs {
   display: flex;
   gap: 10px 0;

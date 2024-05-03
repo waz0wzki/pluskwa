@@ -497,7 +497,7 @@ export class EditWordComponent {
 
   file: any;
 
-  getFile(event: any) {
+  async getFile(event: any) {
     this.file = event.target.files[0];
     console.log('ledossier', this.file);
     let newName = this.loggedUser?.email + '_' + this.editedWord?.word;
@@ -525,6 +525,9 @@ export class EditWordComponent {
           )
         );
       });
+    this.wordMessage = 'Word updated';
+    await this.timeService.delay(1000);
+    this.wordMessage = '';
     // this.userService.deletePhoto(this.file);
   }
 }

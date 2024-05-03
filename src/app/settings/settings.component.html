@@ -18,6 +18,17 @@
         <label class="bgimage" for="new-password">New password</label>
         <input type="password" name="new-password" [(ngModel)]="newPassword" />
       </section>
+
+      @if(userMessage!="") {
+      <label
+        class="bgimage"
+        [ngClass]="{
+            error: userError == true,
+            notError: userError == false,
+          }"
+        >{{ userMessage }}</label
+      >
+      }
       <section class="buttons">
         <button class="deepskyblue" (click)="changeLoginData()">CHANGE</button>
         <button class="crimson" (click)="deleteUser()">DELETE ACCOUNT</button>
@@ -72,6 +83,17 @@
           }
         </select>
       </section>
+
+      @if(courseMessage!="") {
+      <label
+        class="bgimage"
+        [ngClass]="{
+          error: courseError == true,
+          notError: courseError == false,
+        }"
+        >{{ courseMessage }}</label
+      >
+      }
 
       <section class="buttons">
         <button class="deepskyblue" (click)="changeCourseSettings()">

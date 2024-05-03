@@ -10,6 +10,7 @@ import { LANGUAGES } from '../models/languages';
 import { WordSetService } from '../services/word-set.service';
 import { WordService } from '../services/word.service';
 import { WordInterface } from '../interfaces/word.interface';
+import { TimeService } from '../services/time.service';
 
 @Component({
   selector: 'app-settings',
@@ -34,6 +35,10 @@ export class SettingsComponent {
   newStatusChange = '';
   newBaseLanguage = '';
   newOtherLanguage = '';
+  courseMessage = '';
+  courseError = false;
+  userMessage = '';
+  userError = false;
 
   constructor(
     private userService: UserService,
@@ -41,7 +46,8 @@ export class SettingsComponent {
     private router: Router,
     private loginRedirect: LoginRedirect,
     private wordSetService: WordSetService,
-    private wordService: WordService
+    private wordService: WordService,
+    private timeService: TimeService
   ) {}
 
   loggedUser = {} as UserInterface;
@@ -117,7 +123,7 @@ export class SettingsComponent {
     this.router.navigate(['login']);
   }
 
-  changeLoginData() {
+  async changeLoginData() {
     if (!this.loggedUser) {
       return;
     }
@@ -128,15 +134,23 @@ export class SettingsComponent {
 
     if (this.oldPassword != '' && this.newPassword != '') {
       if (this.oldPassword != this.loggedUser.password) {
-        alert('Incorrect old password');
+        this.userError = true;
+        this.userMessage = 'Incorrect password';
+        await this.timeService.delay(1000);
+        this.userMessage = '';
+        this.userError = false;
+        return;
       } else {
         this.loggedUser.password = this.newPassword;
       }
     }
     this.userService.updateUser(this.loggedUser);
+    this.userMessage = 'User changes applied';
+    await this.timeService.delay(1000);
+    this.userMessage = '';
   }
 
-  changeCourseSettings() {
+  async changeCourseSettings() {
     if (!this.loggedUser) {
       return;
     }
@@ -152,9 +166,15 @@ export class SettingsComponent {
         this.loggedUser.word
       )
     );
+    this.courseMessage = 'Course changes applied';
+    await this.timeService.delay(1000);
+    this.courseMessage = '';
   }
 
-  resetProgress() {
+  async resetProgress() {
+    if (!confirm('Are you sure? This operation cannot be undone')) {
+      return;
+    }
     let basicWord = [] as any;
     this.wordService.getBasicWords().subscribe((words: any) => {
       basicWord = words;
@@ -168,6 +188,11 @@ export class SettingsComponent {
         )
       );
     });
+    this.courseError = true;
+    this.courseMessage = 'Progress reset';
+    await this.timeService.delay(1000);
+    this.courseMessage = '';
+    this.courseError = false;
   }
 
   deleteUser() {
