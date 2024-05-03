@@ -6,6 +6,8 @@ import { LoggedUserService } from '../../services/loggedUser.service';
 import { TimeService } from '../../services/time.service';
 import { LANGUAGES } from '../../models/languages';
 import { WordSetService } from '../../services/word-set.service';
+import { WordStatusService } from '../../services/wordStatus.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-learn-intermediate',
@@ -17,7 +19,9 @@ export class LearnIntermediateComponent {
     private randomService: RandomService,
     private loggedUserService: LoggedUserService,
     private timeService: TimeService,
-    private wordSetService: WordSetService
+    private wordSetService: WordSetService,
+    private wordStatusService: WordStatusService,
+    private userService: UserService
   ) {}
 
   chosenAnswers: any = [];
@@ -92,7 +96,7 @@ export class LearnIntermediateComponent {
   }
 
   async nextWordSemiAdvanced() {
-    if (!this.words) {
+    if (!this.words || !this.loggedUser) {
       return;
     }
     this.buttons.forEach((element: any) => {
@@ -101,6 +105,20 @@ export class LearnIntermediateComponent {
 
     if (this.intermediateConfirm == this.chosenWords[this.wordIdx].word) {
       this.confirmStatus = 'Correct';
+      if (this.loggedUser?.statuschange == 'automatic') {
+        this.chosenWords[this.wordIdx] =
+          this.wordStatusService.changeWordStatus(
+            this.chosenWords[this.wordIdx],
+            true
+          );
+      }
+      this.userService.updateUser(this.loggedUser);
+      this.wordSetService.changeWordSetSource(
+        this.wordSetService.getWordSet(
+          this.loggedUser.otherLanguage,
+          this.loggedUser.word
+        )
+      );
       await this.timeService.delay(1000);
       this.confirmStatus = '';
       this.errorIdx = 0;
@@ -113,12 +131,41 @@ export class LearnIntermediateComponent {
     if (this.errorIdx == 2) {
       this.confirmStatus =
         'The correct answer is: ' + this.chosenWords[this.wordIdx].word;
+
+      if (this.loggedUser?.statuschange == 'automatic') {
+        this.chosenWords[this.wordIdx] =
+          this.wordStatusService.changeWordStatus(
+            this.chosenWords[this.wordIdx],
+            false
+          );
+      }
+      this.userService.updateUser(this.loggedUser);
+      this.wordSetService.changeWordSetSource(
+        this.wordSetService.getWordSet(
+          this.loggedUser.otherLanguage,
+          this.loggedUser.word
+        )
+      );
       await this.timeService.delay(1000);
       this.errorIdx = 0;
-      this.chooseAnswers();
       this.nextWord();
+      this.chooseAnswers();
     } else {
       this.confirmStatus = 'Wrong';
+      if (this.loggedUser?.statuschange == 'automatic') {
+        this.chosenWords[this.wordIdx] =
+          this.wordStatusService.changeWordStatus(
+            this.chosenWords[this.wordIdx],
+            false
+          );
+      }
+      this.userService.updateUser(this.loggedUser);
+      this.wordSetService.changeWordSetSource(
+        this.wordSetService.getWordSet(
+          this.loggedUser.otherLanguage,
+          this.loggedUser.word
+        )
+      );
       await this.timeService.delay(1000);
       this.intermediateConfirm = '';
       this.errorIdx++;

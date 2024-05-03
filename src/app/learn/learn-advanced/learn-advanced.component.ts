@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { RandomService } from '../../services/random.service';
 import { LANGUAGES } from '../../models/languages';
 import { WordSetService } from '../../services/word-set.service';
+import { UserService } from '../../services/user.service';
+import { WordStatusService } from '../../services/wordStatus.service';
 
 @Component({
   selector: 'app-learn-advanced',
@@ -34,7 +36,9 @@ export class LearnAdvancedComponent {
     private timeService: TimeService,
     private router: Router,
     private randomService: RandomService,
-    private wordSetService: WordSetService
+    private wordSetService: WordSetService,
+    private userService: UserService,
+    private wordStatusService: WordStatusService
   ) {}
   ngOnInit() {
     this.loggedUserService.currentUser.subscribe(
@@ -85,12 +89,26 @@ export class LearnAdvancedComponent {
   }
 
   async nextWordAdvanced() {
-    if (!this.words) {
+    if (!this.words || !this.loggedUser) {
       return;
     }
 
     if (this.advancedConfirm == this.chosenWords[this.wordIdx].word) {
       this.confirmStatus = 'Correct';
+      if (this.loggedUser?.statuschange == 'automatic') {
+        this.chosenWords[this.wordIdx] =
+          this.wordStatusService.changeWordStatus(
+            this.chosenWords[this.wordIdx],
+            false
+          );
+      }
+      this.userService.updateUser(this.loggedUser);
+      this.wordSetService.changeWordSetSource(
+        this.wordSetService.getWordSet(
+          this.loggedUser.otherLanguage,
+          this.loggedUser.word
+        )
+      );
       await this.timeService.delay(1000);
       this.confirmStatus = '';
       this.errorIdx = 0;
@@ -102,12 +120,41 @@ export class LearnAdvancedComponent {
     if (this.errorIdx == 2) {
       this.confirmStatus =
         'The correct answer is: ' + this.chosenWords[this.wordIdx].word;
+
+      if (this.loggedUser?.statuschange == 'automatic') {
+        this.chosenWords[this.wordIdx] =
+          this.wordStatusService.changeWordStatus(
+            this.chosenWords[this.wordIdx],
+            false
+          );
+      }
+      this.userService.updateUser(this.loggedUser);
+      this.wordSetService.changeWordSetSource(
+        this.wordSetService.getWordSet(
+          this.loggedUser.otherLanguage,
+          this.loggedUser.word
+        )
+      );
       await this.timeService.delay(1000);
       this.errorIdx = 0;
 
       this.nextWord();
     } else {
       this.confirmStatus = 'Wrong';
+      if (this.loggedUser?.statuschange == 'automatic') {
+        this.chosenWords[this.wordIdx] =
+          this.wordStatusService.changeWordStatus(
+            this.chosenWords[this.wordIdx],
+            false
+          );
+      }
+      this.userService.updateUser(this.loggedUser);
+      this.wordSetService.changeWordSetSource(
+        this.wordSetService.getWordSet(
+          this.loggedUser.otherLanguage,
+          this.loggedUser.word
+        )
+      );
       await this.timeService.delay(1000);
       this.advancedConfirm = '';
       this.errorIdx++;

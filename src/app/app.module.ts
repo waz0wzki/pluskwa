@@ -23,6 +23,7 @@ import { TimeService } from './services/time.service';
 import { LoginRedirect } from './services/loginRedirect.service';
 import { FilterPipe } from './filter.pipe';
 import { WordSetService } from './services/word-set.service';
+import { WordStatusService } from './services/wordStatus.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { WordSetService } from './services/word-set.service';
     TimeService,
     LoginRedirect,
     WordSetService,
+    WordStatusService,
   ],
   bootstrap: [AppComponent],
 })
