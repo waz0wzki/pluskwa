@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { LoggedUserService } from '../services/loggedUser.service';
 import { Router } from '@angular/router';
 import { WordSetService } from '../services/word-set.service';
+import { WordService } from '../services/word.service';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent {
   loginError = '';
   words: any = [];
   chosenWords: any = [];
+  category: any = [];
 
   users: UserInterface[] = [];
 
@@ -26,20 +28,24 @@ export class LoginComponent {
     private userService: UserService,
     private loggedUserService: LoggedUserService,
     private router: Router,
-    private wordSetService: WordSetService
+    private wordSetService: WordSetService,
+    private wordService: WordService
   ) {}
 
   ngOnInit() {
+    this.getUsers();
+  }
+
+  getUsers() {
     this.userService.getUsers().subscribe((ures: any) => {
       // this.users = ures.user;
       this.users = ures;
-      this.loggedUserService.currentUser.subscribe(
-        (user) => (this.loggedUser = user)
-      );
     });
   }
 
   signIn() {
+    this.getUsers();
+    console.log('cyckodron w lesie z niedźwiedziem', this.users);
     for (let i = 0; i < this.users.length; i++) {
       // console.log(i,this.email,this.password)
       // console.log(i,this.users[i].email,this.users[i].password)
@@ -77,5 +83,55 @@ export class LoginComponent {
     } else {
       this.loginError = 'Incorrect email or password';
     }
+  }
+
+  signUp() {
+    if (this.email == '' || this.password == '') {
+      this.loginError = 'Fill in correct values';
+    }
+    for (let i = 0; i < this.users.length; i++) {
+      // console.log(i,this.email,this.password)
+      // console.log(i,this.users[i].email,this.users[i].password)
+      if (this.email == this.users[i].email) {
+        this.loginError = 'User with this email already exists';
+        this.loggedIn = false;
+        return;
+      }
+    }
+    let maxId = 0;
+    this.users.forEach((element: any) => {
+      if (element.id > maxId) {
+        maxId = element.id;
+      }
+    });
+    maxId++;
+    console.log(maxId);
+
+    this.wordService.getBasicCategory().subscribe((category: string[]) => {
+      this.category = category;
+      console.log('elo elo 3 2 0', this.category);
+      this.wordService.getBasicWords().subscribe((words: any) => {
+        this.words = words;
+        console.log('cipeczki', this.words);
+        let newUser: UserInterface = {
+          id: maxId.toString(),
+          email: this.email,
+          password: this.password,
+          baseLanguage: 'english',
+          otherLanguage: 'french',
+          learningdifficulty: 'beginner',
+          statuschange: 'manual',
+          category: this.category,
+          word: this.words,
+        };
+        console.log('uga buga', newUser);
+        this.userService.addUser(newUser);
+        this.userService.getUsers().subscribe((ures: any) => {
+          // this.users = ures.user;
+          this.users = ures;
+          this.signIn();
+        });
+      });
+    });
   }
 }

@@ -19,4 +19,12 @@ export class UserService {
   updateUser(user: any) {
     this.http.put(this.url + '/' + user.id, user).subscribe();
   }
+
+  deleteUser(user: any) {
+    this.http.delete(this.url + '/' + user.id, user).subscribe();
+  }
+
+  addUser(user: any) {
+    this.http.post(this.url, user).subscribe();
+  }
 }

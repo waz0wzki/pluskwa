@@ -11,7 +11,12 @@
     />
 
     <section class="buttons">
-      <button><img src="assets/{{ editedWord.imgUrl }}" alt="" /></button>
+      <input type="file" name="file" id="file" (change)="getFile($event)" />
+      <button>
+        <label for="file" class="file"
+          ><img src="assets/{{ editedWord.imgUrl }}" alt=""
+        /></label>
+      </button>
       <button (click)="editWord()">
         <img src="assets/icons8-edit-52.png" alt="" />
       </button>

@@ -169,4 +169,21 @@ export class SettingsComponent {
       );
     });
   }
+
+  deleteUser() {
+    if (!this.loggedUser) {
+      return;
+    }
+
+    if (
+      !confirm(
+        'Are you sure? This operation cannot be undone and your mum will be sad'
+      )
+    ) {
+      return;
+    }
+
+    this.userService.deleteUser(this.loggedUser);
+    this.router.navigate(['login']);
+  }
 }

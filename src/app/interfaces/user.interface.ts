@@ -1,7 +1,7 @@
 import { WordInterface } from './word.interface';
 
 export interface UserInterface {
-  id: number;
+  id: string;
   email: string;
   password: string;
   baseLanguage: string;

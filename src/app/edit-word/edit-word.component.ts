@@ -492,4 +492,12 @@ export class EditWordComponent {
     });
     this.userService.updateUser(this.loggedUser);
   }
+
+  file: any;
+
+  getFile(event: any) {
+    this.file = event.target.files[0];
+    console.log('spocone jaja', this.file);
+    
+  }
 }

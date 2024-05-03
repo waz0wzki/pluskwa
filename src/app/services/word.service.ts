@@ -14,4 +14,8 @@ export class WordService {
   getBasicWords(): Observable<WordInterface[]> {
     return this.http.get<WordInterface[]>('http://localhost:3000/basicWord');
   }
+
+  getBasicCategory(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:3000/basicCategory');
+  }
 }
