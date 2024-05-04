@@ -94,7 +94,6 @@ export class LoginComponent {
       // console.log(i,this.users[i].email,this.users[i].password)
       if (this.email == this.users[i].email) {
         this.loginError = 'User with this email already exists';
-        this.loggedIn = false;
         return;
       }
     }
@@ -131,6 +130,7 @@ export class LoginComponent {
         this.userService.getUsers().subscribe((ures: any) => {
           // this.users = ures.user;
           this.users = ures;
+          console.log('czarnuchy', this.users);
           this.signIn();
         });
       });
