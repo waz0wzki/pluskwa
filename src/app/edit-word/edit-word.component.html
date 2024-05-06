@@ -226,6 +226,17 @@
     </section>
   </section>
 
+  @if(theCategoryMessage!="") {
+  <label
+    class="bgimage"
+    [ngClass]="{
+      error: theCategoryError == true,
+      notError: theCategoryError == false,
+    }"
+    >{{ theCategoryMessage }}</label
+  >
+  }
+
   <section class="edit-row">
     <label for="" class="bgimage delete">DELETE THE CATEGORY</label>
     <select name="" id="" [(ngModel)]="convictCategory">

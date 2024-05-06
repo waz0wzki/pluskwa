@@ -47,6 +47,8 @@ export class EditWordComponent {
   difficultyMessage = '';
   categoryMessage = '';
   categoryError = false;
+  theCategoryMessage = '';
+  theCategoryError = false;
 
   // public readonly STATUS_OPTIONS = STATUS_OPTIONS;
   // public readonly DIFFICULTY_OPTIONS = DIFFICULTY_OPTIONS;
@@ -474,16 +476,19 @@ export class EditWordComponent {
     }
   }
 
-  addNewCategory() {
+  async addNewCategory() {
     if (!this.loggedUser || !this.newCategory) {
       return;
     }
     console.log('category added', this.newCategory);
     this.loggedUser.category.push(this.newCategory);
     this.userService.updateUser(this.loggedUser);
+    this.theCategoryMessage = 'New category added';
+    await this.timeService.delay(1000);
+    this.theCategoryMessage = '';
   }
 
-  deleteCategory() {
+  async deleteCategory() {
     if (!this.loggedUser || !this.convictCategory) {
       return;
     }
@@ -493,6 +498,9 @@ export class EditWordComponent {
       this.removeFromArray(element.category, this.convictCategory);
     });
     this.userService.updateUser(this.loggedUser);
+    this.theCategoryMessage = 'Category removed';
+    await this.timeService.delay(1000);
+    this.theCategoryMessage = '';
   }
 
   file: any;

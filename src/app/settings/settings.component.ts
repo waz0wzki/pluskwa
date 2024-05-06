@@ -129,6 +129,18 @@ export class SettingsComponent {
     }
 
     if (this.newMail != '') {
+      for (let i = 0; i < this.users.length; i++) {
+        // console.log(i,this.email,this.password)
+        // console.log(i,this.users[i].email,this.users[i].password)
+        if (this.newMail == this.users[i].email) {
+          this.userMessage = 'User with this email already exists';
+          this.userError = true;
+          await this.timeService.delay(1000);
+          this.userError = false;
+          this.userMessage = '';
+          return;
+        }
+      }
       this.loggedUser.email = this.newMail;
     }
 
@@ -209,6 +221,7 @@ export class SettingsComponent {
     }
 
     this.userService.deleteUser(this.loggedUser);
+    this.loggedUser = {} as UserInterface;
     this.router.navigate(['login']);
   }
 }
